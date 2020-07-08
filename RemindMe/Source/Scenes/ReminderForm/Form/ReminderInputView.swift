@@ -18,6 +18,14 @@ class ReminderInputView: UIView {
         }
     }
     
+    func setEmoji(_ emoji: String?) {
+        self.emojiLabel.text = emoji
+    }
+    
+    func setTextFieldInput(_ text: String?) {
+        self.inputField.text = text
+    }
+    
     // MARK: - private properties
     
     private let emojiLabel: UILabel = {
