@@ -11,20 +11,15 @@ import UIKit
 
 final class RemindersRouter {
     weak var viewController: RemindersVC?
+    var formCoordinator: ReminderFormCoordinator!
     
     init(viewController: RemindersVC?) {
         self.viewController = viewController
     }
     
-    func navigateToCamera() {
-        let cameraVC = CameraVC.newInstance()
-        viewController?.navigationController?.pushViewController(cameraVC, animated: true)
-    }
-    
-    func showPhotoPicker(sourceType: UIImagePickerController.SourceType) {
-        let picker = UIImagePickerController()
-        picker.delegate = viewController
-        picker.sourceType = sourceType
-        viewController?.present(picker, animated: true)
+    func showNewReminderForm() {
+        let navController = viewController?.navigationController
+        formCoordinator = ReminderFormCoordinator(navigationController: navController)
+        formCoordinator.showReminderForm()
     }
 }

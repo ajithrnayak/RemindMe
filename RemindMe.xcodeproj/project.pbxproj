@@ -24,6 +24,11 @@
 		F8632E4924B5985E00418BA5 /* RemindersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E4824B5985E00418BA5 /* RemindersRouter.swift */; };
 		F8632E4E24B5A03500418BA5 /* CameraProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E4D24B5A03500418BA5 /* CameraProvider.swift */; };
 		F8632E5124B5D46800418BA5 /* LitenLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E5024B5D46800418BA5 /* LitenLogger.swift */; };
+		F8632E5C24B5DC5D00418BA5 /* RemindersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E5B24B5DC5D00418BA5 /* RemindersViewModel.swift */; };
+		F8632E6324B60F7500418BA5 /* ReminderFormCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E6224B60F7500418BA5 /* ReminderFormCoordinator.swift */; };
+		F8632E6524B616D500418BA5 /* NSLocalized+Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E6424B616D500418BA5 /* NSLocalized+Global.swift */; };
+		F8632E6924B61DE000418BA5 /* ReminderFormRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E6724B61DE000418BA5 /* ReminderFormRouter.swift */; };
+		F8632E6A24B61DE000418BA5 /* ReminderFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E6824B61DE000418BA5 /* ReminderFormVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +73,11 @@
 		F8632E4824B5985E00418BA5 /* RemindersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersRouter.swift; sourceTree = "<group>"; };
 		F8632E4D24B5A03500418BA5 /* CameraProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraProvider.swift; sourceTree = "<group>"; };
 		F8632E5024B5D46800418BA5 /* LitenLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LitenLogger.swift; sourceTree = "<group>"; };
+		F8632E5B24B5DC5D00418BA5 /* RemindersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewModel.swift; sourceTree = "<group>"; };
+		F8632E6224B60F7500418BA5 /* ReminderFormCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderFormCoordinator.swift; sourceTree = "<group>"; };
+		F8632E6424B616D500418BA5 /* NSLocalized+Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLocalized+Global.swift"; sourceTree = "<group>"; };
+		F8632E6724B61DE000418BA5 /* ReminderFormRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderFormRouter.swift; sourceTree = "<group>"; };
+		F8632E6824B61DE000418BA5 /* ReminderFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderFormVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,9 +171,9 @@
 		F8632E3024B582AF00418BA5 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F8632E5D24B5DD0600418BA5 /* ReminderForm */,
 				F8632E3124B582AF00418BA5 /* Navigation */,
 				F8632E3224B582AF00418BA5 /* Reminders */,
-				F8632E3824B5850800418BA5 /* Camera */,
 				F8632E3924B5850800418BA5 /* RemindersList */,
 			);
 			path = Scenes;
@@ -181,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				F8632E3624B5837000418BA5 /* RemindersVC.swift */,
+				F8632E5B24B5DC5D00418BA5 /* RemindersViewModel.swift */,
 				F8632E4824B5985E00418BA5 /* RemindersRouter.swift */,
 			);
 			path = Reminders;
@@ -189,6 +200,7 @@
 		F8632E3324B582AF00418BA5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F8632E6424B616D500418BA5 /* NSLocalized+Global.swift */,
 				F8632E4F24B5D46800418BA5 /* LitenLogger */,
 				F8632E4324B5968F00418BA5 /* Styles */,
 				F8632E3E24B591D500418BA5 /* Extensions */,
@@ -251,6 +263,25 @@
 				F8632E5024B5D46800418BA5 /* LitenLogger.swift */,
 			);
 			path = LitenLogger;
+			sourceTree = "<group>";
+		};
+		F8632E5D24B5DD0600418BA5 /* ReminderForm */ = {
+			isa = PBXGroup;
+			children = (
+				F8632E3824B5850800418BA5 /* Camera */,
+				F8632E6624B61DE000418BA5 /* Form */,
+				F8632E6224B60F7500418BA5 /* ReminderFormCoordinator.swift */,
+			);
+			path = ReminderForm;
+			sourceTree = "<group>";
+		};
+		F8632E6624B61DE000418BA5 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				F8632E6824B61DE000418BA5 /* ReminderFormVC.swift */,
+				F8632E6724B61DE000418BA5 /* ReminderFormRouter.swift */,
+			);
+			path = Form;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,17 +416,22 @@
 			files = (
 				F8632E3B24B5854800418BA5 /* RemindersListVC.swift in Sources */,
 				F8632DFB24B575E300418BA5 /* AppDelegate.swift in Sources */,
+				F8632E5C24B5DC5D00418BA5 /* RemindersViewModel.swift in Sources */,
 				F8632E3724B5837000418BA5 /* RemindersVC.swift in Sources */,
+				F8632E6524B616D500418BA5 /* NSLocalized+Global.swift in Sources */,
 				F8632E3524B5830900418BA5 /* NavigationController.swift in Sources */,
 				F8632E4524B596AD00418BA5 /* AppIcons.swift in Sources */,
 				F8632E0524B575E300418BA5 /* RemindMe.xcdatamodeld in Sources */,
 				F8632DFD24B575E300418BA5 /* SceneDelegate.swift in Sources */,
 				F8632E5124B5D46800418BA5 /* LitenLogger.swift in Sources */,
+				F8632E6324B60F7500418BA5 /* ReminderFormCoordinator.swift in Sources */,
 				F8632E4E24B5A03500418BA5 /* CameraProvider.swift in Sources */,
+				F8632E6A24B61DE000418BA5 /* ReminderFormVC.swift in Sources */,
 				F8632E4924B5985E00418BA5 /* RemindersRouter.swift in Sources */,
 				F8632E4724B5981300418BA5 /* CameraVC.swift in Sources */,
 				F8632E4224B591F000418BA5 /* UIView+Layer.swift in Sources */,
 				F8632E4024B591D500418BA5 /* UIView+NSLayoutConstraint.swift in Sources */,
+				F8632E6924B61DE000418BA5 /* ReminderFormRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,9 +23,9 @@ class RemindersVC: UIViewController {
         $0.setTitleColor(.systemPink, for: .normal)
         $0.setTitle("+", for: .normal)
         $0.titleLabel?.font = UIFont.systemFont(ofSize: 42.0, weight: .bold)
-        $0.titleLabel?.textAlignment = .center
-        $0.contentVerticalAlignment = .center
-        $0.contentHorizontalAlignment = .center
+        $0.titleLabel?.textAlignment    = .center
+        $0.contentVerticalAlignment     = .center
+        $0.contentHorizontalAlignment   = .center
         $0.addTarget(self, action: #selector(createReminderButtonAction), for: .touchUpInside)
         $0.fullyRounded(diameter: 60.0)
         return $0
@@ -34,7 +34,30 @@ class RemindersVC: UIViewController {
     // MARK: - Properties
     private var router: RemindersRouter!
     
-    // MARK: - View Life Cycle
+    // MARK: - Initializers
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        configureScene()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func configureScene() {
+        self.router = RemindersRouter(viewController: self)
+    }
+    
+    // MARK: - Actions
+    @objc
+    func createReminderButtonAction() {
+        router.showNewReminderForm()
+    }
+}
+
+// MARK: - View Life Cycle
+
+extension RemindersVC {
     
     override func loadView() {
         super.loadView()
@@ -45,13 +68,12 @@ class RemindersVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "RemindMe"
-        configureScene()
     }
-    
-    // MARK: - Initial Configuration
-    private func configureScene() {
-        self.router = RemindersRouter(viewController: self)
-    }
+}
+
+// MARK: - Initial Configuration
+
+extension RemindersVC {
     
     private func setupRemindersList() {
         view.addSubview(containerView)
@@ -70,34 +92,6 @@ class RemindersVC: UIViewController {
                            createReminderButton.heightAnchor.constraint(equalToConstant: 60.0),
                            createReminderButton.widthAnchor.constraint(equalToConstant: 60.0)]
         constraints.forEach { $0.isActive = true }
-    }
-    
-    // MARK: - Actions
-    @objc
-    func createReminderButtonAction() {
-        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
-            router.showPhotoPicker(sourceType: .photoLibrary)
-            return
-        }
-        router.showPhotoPicker(sourceType: .camera)
-    }
-
-}
-
-// MARK: - Handling Image Picker Selection
-extension RemindersVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        picker.dismiss(animated: true)
-        
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            // use image to process
-        }
     }
 }
 
