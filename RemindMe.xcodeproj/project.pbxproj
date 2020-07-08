@@ -15,6 +15,7 @@
 		F8632E1524B575E400418BA5 /* RemindMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E1424B575E400418BA5 /* RemindMeTests.swift */; };
 		F8632E2024B575E400418BA5 /* RemindMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E1F24B575E400418BA5 /* RemindMeUITests.swift */; };
 		F8632E3524B5830900418BA5 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E3424B5830900418BA5 /* NavigationController.swift */; };
+		F8632E3724B5837000418BA5 /* RemindersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E3624B5837000418BA5 /* RemindersVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		F8632E2124B575E400418BA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8632E2D24B5792500418BA5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F8632E3424B5830900418BA5 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		F8632E3624B5837000418BA5 /* RemindersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 		F8632E3224B582AF00418BA5 /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
+				F8632E3624B5837000418BA5 /* RemindersVC.swift */,
 			);
 			path = Reminders;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8632DFB24B575E300418BA5 /* AppDelegate.swift in Sources */,
+				F8632E3724B5837000418BA5 /* RemindersVC.swift in Sources */,
 				F8632E3524B5830900418BA5 /* NavigationController.swift in Sources */,
 				F8632E0524B575E300418BA5 /* RemindMe.xcdatamodeld in Sources */,
 				F8632DFD24B575E300418BA5 /* SceneDelegate.swift in Sources */,
