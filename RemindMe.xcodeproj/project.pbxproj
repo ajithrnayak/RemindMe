@@ -38,6 +38,7 @@
 		F8632E7A24B6224D00418BA5 /* ReminderFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E7924B6224D00418BA5 /* ReminderFormViewModel.swift */; };
 		F8632E7C24B634A800418BA5 /* ReminderInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E7B24B634A700418BA5 /* ReminderInputView.swift */; };
 		F8632E7E24B6470000418BA5 /* VisionMLWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E7D24B6470000418BA5 /* VisionMLWorker.swift */; };
+		F8632E8324B6686800418BA5 /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F8632E8224B6686800418BA5 /* MobileNetV2.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		F8632E7924B6224D00418BA5 /* ReminderFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderFormViewModel.swift; sourceTree = "<group>"; };
 		F8632E7B24B634A700418BA5 /* ReminderInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderInputView.swift; sourceTree = "<group>"; };
 		F8632E7D24B6470000418BA5 /* VisionMLWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionMLWorker.swift; sourceTree = "<group>"; };
+		F8632E8224B6686800418BA5 /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				F8632DFA24B575E300418BA5 /* AppDelegate.swift */,
 				F8632DFC24B575E300418BA5 /* SceneDelegate.swift */,
 				F8632E2F24B582AF00418BA5 /* Source */,
+				F8632E7F24B6499D00418BA5 /* Resources */,
 				F8632E0624B575E300418BA5 /* Assets.xcassets */,
 				F8632E0824B575E300418BA5 /* LaunchScreen.storyboard */,
 				F8632E0B24B575E300418BA5 /* Info.plist */,
@@ -327,6 +330,14 @@
 			path = Suggestions;
 			sourceTree = "<group>";
 		};
+		F8632E7F24B6499D00418BA5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F8632E8224B6686800418BA5 /* MobileNetV2.mlmodel */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -471,6 +482,7 @@
 				F8632E5124B5D46800418BA5 /* LitenLogger.swift in Sources */,
 				F8632E6324B60F7500418BA5 /* ReminderFormCoordinator.swift in Sources */,
 				F8632E4E24B5A03500418BA5 /* CameraProvider.swift in Sources */,
+				F8632E8324B6686800418BA5 /* MobileNetV2.mlmodel in Sources */,
 				F8632E7824B6222D00418BA5 /* ReminderFormState.swift in Sources */,
 				F8632E7024B61E9200418BA5 /* PlaceholderView.swift in Sources */,
 				F8632E6A24B61DE000418BA5 /* ReminderFormVC.swift in Sources */,
