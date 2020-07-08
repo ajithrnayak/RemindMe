@@ -29,6 +29,10 @@
 		F8632E6524B616D500418BA5 /* NSLocalized+Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E6424B616D500418BA5 /* NSLocalized+Global.swift */; };
 		F8632E6924B61DE000418BA5 /* ReminderFormRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E6724B61DE000418BA5 /* ReminderFormRouter.swift */; };
 		F8632E6A24B61DE000418BA5 /* ReminderFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E6824B61DE000418BA5 /* ReminderFormVC.swift */; };
+		F8632E7024B61E9200418BA5 /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E6C24B61E9200418BA5 /* PlaceholderView.swift */; };
+		F8632E7124B61E9200418BA5 /* UIViewController+PlaceholderStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E6D24B61E9200418BA5 /* UIViewController+PlaceholderStatus.swift */; };
+		F8632E7224B61E9200418BA5 /* PlaceholderStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E6E24B61E9200418BA5 /* PlaceholderStatus.swift */; };
+		F8632E7324B61E9200418BA5 /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E6F24B61E9200418BA5 /* Placeholder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +82,10 @@
 		F8632E6424B616D500418BA5 /* NSLocalized+Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLocalized+Global.swift"; sourceTree = "<group>"; };
 		F8632E6724B61DE000418BA5 /* ReminderFormRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderFormRouter.swift; sourceTree = "<group>"; };
 		F8632E6824B61DE000418BA5 /* ReminderFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderFormVC.swift; sourceTree = "<group>"; };
+		F8632E6C24B61E9200418BA5 /* PlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
+		F8632E6D24B61E9200418BA5 /* UIViewController+PlaceholderStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PlaceholderStatus.swift"; sourceTree = "<group>"; };
+		F8632E6E24B61E9200418BA5 /* PlaceholderStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderStatus.swift; sourceTree = "<group>"; };
+		F8632E6F24B61E9200418BA5 /* Placeholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +252,7 @@
 		F8632E4A24B59F7E00418BA5 /* Reusables */ = {
 			isa = PBXGroup;
 			children = (
+				F8632E6B24B61E9200418BA5 /* PlaceholderStatus */,
 				F8632E4C24B5A00400418BA5 /* Camera */,
 			);
 			path = Reusables;
@@ -282,6 +291,17 @@
 				F8632E6724B61DE000418BA5 /* ReminderFormRouter.swift */,
 			);
 			path = Form;
+			sourceTree = "<group>";
+		};
+		F8632E6B24B61E9200418BA5 /* PlaceholderStatus */ = {
+			isa = PBXGroup;
+			children = (
+				F8632E6C24B61E9200418BA5 /* PlaceholderView.swift */,
+				F8632E6D24B61E9200418BA5 /* UIViewController+PlaceholderStatus.swift */,
+				F8632E6E24B61E9200418BA5 /* PlaceholderStatus.swift */,
+				F8632E6F24B61E9200418BA5 /* Placeholder.swift */,
+			);
+			path = PlaceholderStatus;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,11 +446,15 @@
 				F8632E5124B5D46800418BA5 /* LitenLogger.swift in Sources */,
 				F8632E6324B60F7500418BA5 /* ReminderFormCoordinator.swift in Sources */,
 				F8632E4E24B5A03500418BA5 /* CameraProvider.swift in Sources */,
+				F8632E7024B61E9200418BA5 /* PlaceholderView.swift in Sources */,
 				F8632E6A24B61DE000418BA5 /* ReminderFormVC.swift in Sources */,
+				F8632E7124B61E9200418BA5 /* UIViewController+PlaceholderStatus.swift in Sources */,
 				F8632E4924B5985E00418BA5 /* RemindersRouter.swift in Sources */,
 				F8632E4724B5981300418BA5 /* CameraVC.swift in Sources */,
 				F8632E4224B591F000418BA5 /* UIView+Layer.swift in Sources */,
 				F8632E4024B591D500418BA5 /* UIView+NSLayoutConstraint.swift in Sources */,
+				F8632E7324B61E9200418BA5 /* Placeholder.swift in Sources */,
+				F8632E7224B61E9200418BA5 /* PlaceholderStatus.swift in Sources */,
 				F8632E6924B61DE000418BA5 /* ReminderFormRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
