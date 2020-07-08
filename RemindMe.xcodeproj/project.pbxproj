@@ -101,6 +101,7 @@
 			children = (
 				F8632DFA24B575E300418BA5 /* AppDelegate.swift */,
 				F8632DFC24B575E300418BA5 /* SceneDelegate.swift */,
+				F8632E2F24B582AF00418BA5 /* Source */,
 				F8632E0624B575E300418BA5 /* Assets.xcassets */,
 				F8632E0824B575E300418BA5 /* LaunchScreen.storyboard */,
 				F8632E0B24B575E300418BA5 /* Info.plist */,
@@ -125,6 +126,45 @@
 				F8632E2124B575E400418BA5 /* Info.plist */,
 			);
 			path = RemindMeUITests;
+			sourceTree = "<group>";
+		};
+		F8632E2F24B582AF00418BA5 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				F8632E3024B582AF00418BA5 /* Scenes */,
+				F8632E3324B582AF00418BA5 /* Helpers */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		F8632E3024B582AF00418BA5 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F8632E3124B582AF00418BA5 /* Navigation */,
+				F8632E3224B582AF00418BA5 /* Reminders */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F8632E3124B582AF00418BA5 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		F8632E3224B582AF00418BA5 /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reminders;
+			sourceTree = "<group>";
+		};
+		F8632E3324B582AF00418BA5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
