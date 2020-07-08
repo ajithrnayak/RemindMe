@@ -21,7 +21,8 @@ Any photo of Oxford dictionary and merriam-webster dictionary should be consider
 
 3. Once the “Type” is detected , the app should show the list of common tasks associated with the Type
 Eg:
-Vehicle - Give it for Service , Wash , Change oil , Refuel Apparels - Give it to laundry, Wash, Iron , Exchange/ Alter , Return
+Vehicle - Give it for Service , Wash , Change oil , Refuel 
+Apparels - Give it to laundry, Wash, Iron , Exchange/ Alter , Return
 Groceries - Order Groceries
 Books - Return to library,Order online, Return to friend, Enquire in library
 4. Once task is selected from list of available tasks - assign due date and time

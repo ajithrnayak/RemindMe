@@ -8,6 +8,29 @@
 
 import Foundation
 
+enum ReminderType {
+    case vehicle
+    case apparel
+    case book
+    case grocery
+    case code
+    
+    var emoji: String {
+        switch self {
+        case .vehicle:
+            return "🚘"
+        case .apparel:
+            return "👗"
+        case .book:
+            return "📚"
+        case .grocery:
+            return "🛍"
+        case .code:
+            return "👨‍💻"
+        }
+    }
+}
+
 class ReminderFormViewModel {
     var state: ReminderFormState?
 }
