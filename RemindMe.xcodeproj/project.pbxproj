@@ -20,6 +20,8 @@
 		F8632E4024B591D500418BA5 /* UIView+NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E3F24B591D500418BA5 /* UIView+NSLayoutConstraint.swift */; };
 		F8632E4224B591F000418BA5 /* UIView+Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E4124B591F000418BA5 /* UIView+Layer.swift */; };
 		F8632E4524B596AD00418BA5 /* AppIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E4424B596AD00418BA5 /* AppIcons.swift */; };
+		F8632E4724B5981300418BA5 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E4624B5981300418BA5 /* CameraVC.swift */; };
+		F8632E4924B5985E00418BA5 /* RemindersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E4824B5985E00418BA5 /* RemindersRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		F8632E3F24B591D500418BA5 /* UIView+NSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+NSLayoutConstraint.swift"; sourceTree = "<group>"; };
 		F8632E4124B591F000418BA5 /* UIView+Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layer.swift"; sourceTree = "<group>"; };
 		F8632E4424B596AD00418BA5 /* AppIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcons.swift; sourceTree = "<group>"; };
+		F8632E4624B5981300418BA5 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
+		F8632E4824B5985E00418BA5 /* RemindersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				F8632E3624B5837000418BA5 /* RemindersVC.swift */,
+				F8632E4824B5985E00418BA5 /* RemindersRouter.swift */,
 			);
 			path = Reminders;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 		F8632E3824B5850800418BA5 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				F8632E4624B5981300418BA5 /* CameraVC.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -354,6 +360,8 @@
 				F8632E4524B596AD00418BA5 /* AppIcons.swift in Sources */,
 				F8632E0524B575E300418BA5 /* RemindMe.xcdatamodeld in Sources */,
 				F8632DFD24B575E300418BA5 /* SceneDelegate.swift in Sources */,
+				F8632E4924B5985E00418BA5 /* RemindersRouter.swift in Sources */,
+				F8632E4724B5981300418BA5 /* CameraVC.swift in Sources */,
 				F8632E4224B591F000418BA5 /* UIView+Layer.swift in Sources */,
 				F8632E4024B591D500418BA5 /* UIView+NSLayoutConstraint.swift in Sources */,
 			);

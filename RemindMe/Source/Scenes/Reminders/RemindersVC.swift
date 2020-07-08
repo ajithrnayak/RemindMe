@@ -31,6 +31,9 @@ class RemindersVC: UIViewController {
         return $0
     }(UIButton(type: .custom))
     
+    // MARK: - Properties
+    private var router: RemindersRouter!
+    
     // MARK: - View Life Cycle
     
     override func loadView() {
@@ -42,9 +45,14 @@ class RemindersVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "RemindMe"
+        configureScene()
     }
     
     // MARK: - Initial Configuration
+    private func configureScene() {
+        self.router = RemindersRouter(viewController: self)
+    }
+    
     private func setupRemindersList() {
         view.addSubview(containerView)
         containerView.addConstraintsToMatch(superView: view)
@@ -67,7 +75,7 @@ class RemindersVC: UIViewController {
     // MARK: - Actions
     @objc
     func createReminderButtonAction() {
-        print("Hello")
+        router.navigateToCamera()
     }
 
 }
