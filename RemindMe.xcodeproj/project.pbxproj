@@ -19,6 +19,7 @@
 		F8632E3B24B5854800418BA5 /* RemindersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E3A24B5854800418BA5 /* RemindersListVC.swift */; };
 		F8632E4024B591D500418BA5 /* UIView+NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E3F24B591D500418BA5 /* UIView+NSLayoutConstraint.swift */; };
 		F8632E4224B591F000418BA5 /* UIView+Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E4124B591F000418BA5 /* UIView+Layer.swift */; };
+		F8632E4524B596AD00418BA5 /* AppIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E4424B596AD00418BA5 /* AppIcons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		F8632E3A24B5854800418BA5 /* RemindersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListVC.swift; sourceTree = "<group>"; };
 		F8632E3F24B591D500418BA5 /* UIView+NSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+NSLayoutConstraint.swift"; sourceTree = "<group>"; };
 		F8632E4124B591F000418BA5 /* UIView+Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layer.swift"; sourceTree = "<group>"; };
+		F8632E4424B596AD00418BA5 /* AppIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 		F8632E3324B582AF00418BA5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F8632E4324B5968F00418BA5 /* Styles */,
 				F8632E3E24B591D500418BA5 /* Extensions */,
 			);
 			path = Helpers;
@@ -204,6 +207,14 @@
 				F8632E4124B591F000418BA5 /* UIView+Layer.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F8632E4324B5968F00418BA5 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				F8632E4424B596AD00418BA5 /* AppIcons.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +351,7 @@
 				F8632DFB24B575E300418BA5 /* AppDelegate.swift in Sources */,
 				F8632E3724B5837000418BA5 /* RemindersVC.swift in Sources */,
 				F8632E3524B5830900418BA5 /* NavigationController.swift in Sources */,
+				F8632E4524B596AD00418BA5 /* AppIcons.swift in Sources */,
 				F8632E0524B575E300418BA5 /* RemindMe.xcdatamodeld in Sources */,
 				F8632DFD24B575E300418BA5 /* SceneDelegate.swift in Sources */,
 				F8632E4224B591F000418BA5 /* UIView+Layer.swift in Sources */,
