@@ -29,6 +29,11 @@ class ReminderFormVC: UIViewController {
                                                     target: self,
                                                     action: #selector(saveReminderAction))
     
+    private let reminderInputView: ReminderInputView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(ReminderInputView())
+    
     // MARK: - Initializers
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -45,7 +50,11 @@ class ReminderFormVC: UIViewController {
     }
     
     // MARK: - View Life Cycle
-
+    override func loadView() {
+        super.loadView()
+        setupInputView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -61,6 +70,19 @@ class ReminderFormVC: UIViewController {
     func saveReminderAction() {
     }
     
+}
+
+// MARK: - Initial setup
+
+extension ReminderFormVC {
+    private func setupInputView() {
+        view.addSubview(reminderInputView)
+        let constraints = [reminderInputView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                           reminderInputView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                           reminderInputView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                           reminderInputView.heightAnchor.constraint(equalToConstant: 80.0)]
+        constraints.forEach { $0.isActive = true }
+    }
 }
 
 // MARK: - Factory Initializer

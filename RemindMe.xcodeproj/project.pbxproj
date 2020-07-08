@@ -36,6 +36,7 @@
 		F8632E7624B61F9C00418BA5 /* SuggestionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E7524B61F9C00418BA5 /* SuggestionsVC.swift */; };
 		F8632E7824B6222D00418BA5 /* ReminderFormState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E7724B6222D00418BA5 /* ReminderFormState.swift */; };
 		F8632E7A24B6224D00418BA5 /* ReminderFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E7924B6224D00418BA5 /* ReminderFormViewModel.swift */; };
+		F8632E7C24B634A800418BA5 /* ReminderInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E7B24B634A700418BA5 /* ReminderInputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		F8632E7524B61F9C00418BA5 /* SuggestionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsVC.swift; sourceTree = "<group>"; };
 		F8632E7724B6222D00418BA5 /* ReminderFormState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderFormState.swift; sourceTree = "<group>"; };
 		F8632E7924B6224D00418BA5 /* ReminderFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderFormViewModel.swift; sourceTree = "<group>"; };
+		F8632E7B24B634A700418BA5 /* ReminderInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderInputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +300,7 @@
 				F8632E7724B6222D00418BA5 /* ReminderFormState.swift */,
 				F8632E7924B6224D00418BA5 /* ReminderFormViewModel.swift */,
 				F8632E6724B61DE000418BA5 /* ReminderFormRouter.swift */,
+				F8632E7B24B634A700418BA5 /* ReminderInputView.swift */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				F8632E7324B61E9200418BA5 /* Placeholder.swift in Sources */,
 				F8632E7224B61E9200418BA5 /* PlaceholderStatus.swift in Sources */,
 				F8632E6924B61DE000418BA5 /* ReminderFormRouter.swift in Sources */,
+				F8632E7C24B634A800418BA5 /* ReminderInputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
