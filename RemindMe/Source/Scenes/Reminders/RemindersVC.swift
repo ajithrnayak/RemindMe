@@ -75,9 +75,30 @@ class RemindersVC: UIViewController {
     // MARK: - Actions
     @objc
     func createReminderButtonAction() {
-        router.navigateToCamera()
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+            router.showPhotoPicker(sourceType: .photoLibrary)
+            return
+        }
+        router.showPhotoPicker(sourceType: .camera)
     }
 
+}
+
+// MARK: - Handling Image Picker Selection
+extension RemindersVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            // use image to process
+        }
+    }
 }
 
 // MARK: - Factory Initializer

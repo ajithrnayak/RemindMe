@@ -20,4 +20,11 @@ final class RemindersRouter {
         let cameraVC = CameraVC.newInstance()
         viewController?.navigationController?.pushViewController(cameraVC, animated: true)
     }
+    
+    func showPhotoPicker(sourceType: UIImagePickerController.SourceType) {
+        let picker = UIImagePickerController()
+        picker.delegate = viewController
+        picker.sourceType = sourceType
+        viewController?.present(picker, animated: true)
+    }
 }
