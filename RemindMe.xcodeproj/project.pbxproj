@@ -17,7 +17,8 @@
 		F8632E3524B5830900418BA5 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E3424B5830900418BA5 /* NavigationController.swift */; };
 		F8632E3724B5837000418BA5 /* RemindersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E3624B5837000418BA5 /* RemindersVC.swift */; };
 		F8632E3B24B5854800418BA5 /* RemindersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E3A24B5854800418BA5 /* RemindersListVC.swift */; };
-		F8632E3D24B589BC00418BA5 /* UIView+NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E3C24B589BC00418BA5 /* UIView+NSLayoutConstraint.swift */; };
+		F8632E4024B591D500418BA5 /* UIView+NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E3F24B591D500418BA5 /* UIView+NSLayoutConstraint.swift */; };
+		F8632E4224B591F000418BA5 /* UIView+Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E4124B591F000418BA5 /* UIView+Layer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +56,8 @@
 		F8632E3424B5830900418BA5 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		F8632E3624B5837000418BA5 /* RemindersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersVC.swift; sourceTree = "<group>"; };
 		F8632E3A24B5854800418BA5 /* RemindersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListVC.swift; sourceTree = "<group>"; };
-		F8632E3C24B589BC00418BA5 /* UIView+NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NSLayoutConstraint.swift"; sourceTree = "<group>"; };
+		F8632E3F24B591D500418BA5 /* UIView+NSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+NSLayoutConstraint.swift"; sourceTree = "<group>"; };
+		F8632E4124B591F000418BA5 /* UIView+Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layer.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,7 +177,7 @@
 		F8632E3324B582AF00418BA5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				F8632E3C24B589BC00418BA5 /* UIView+NSLayoutConstraint.swift */,
+				F8632E3E24B591D500418BA5 /* Extensions */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -193,6 +195,15 @@
 				F8632E3A24B5854800418BA5 /* RemindersListVC.swift */,
 			);
 			path = RemindersList;
+			sourceTree = "<group>";
+		};
+		F8632E3E24B591D500418BA5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F8632E3F24B591D500418BA5 /* UIView+NSLayoutConstraint.swift */,
+				F8632E4124B591F000418BA5 /* UIView+Layer.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,12 +337,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8632E3B24B5854800418BA5 /* RemindersListVC.swift in Sources */,
-				F8632E3D24B589BC00418BA5 /* UIView+NSLayoutConstraint.swift in Sources */,
 				F8632DFB24B575E300418BA5 /* AppDelegate.swift in Sources */,
 				F8632E3724B5837000418BA5 /* RemindersVC.swift in Sources */,
 				F8632E3524B5830900418BA5 /* NavigationController.swift in Sources */,
 				F8632E0524B575E300418BA5 /* RemindMe.xcdatamodeld in Sources */,
 				F8632DFD24B575E300418BA5 /* SceneDelegate.swift in Sources */,
+				F8632E4224B591F000418BA5 /* UIView+Layer.swift in Sources */,
+				F8632E4024B591D500418BA5 /* UIView+NSLayoutConstraint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

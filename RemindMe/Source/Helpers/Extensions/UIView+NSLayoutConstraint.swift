@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 
 extension UIView {
+    
+    /// Add constraints to pin edges of the given superview
+    /// - Parameter superView: The parent container view
     final func addConstraintsToMatch(superView: UIView) {
         let constraints = [topAnchor.constraint(equalTo: superView.topAnchor),
                            bottomAnchor.constraint(equalTo: superView.bottomAnchor),
