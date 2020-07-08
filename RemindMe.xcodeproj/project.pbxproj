@@ -34,6 +34,8 @@
 		F8632E7224B61E9200418BA5 /* PlaceholderStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E6E24B61E9200418BA5 /* PlaceholderStatus.swift */; };
 		F8632E7324B61E9200418BA5 /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E6F24B61E9200418BA5 /* Placeholder.swift */; };
 		F8632E7624B61F9C00418BA5 /* SuggestionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E7524B61F9C00418BA5 /* SuggestionsVC.swift */; };
+		F8632E7824B6222D00418BA5 /* ReminderFormState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E7724B6222D00418BA5 /* ReminderFormState.swift */; };
+		F8632E7A24B6224D00418BA5 /* ReminderFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E7924B6224D00418BA5 /* ReminderFormViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,8 @@
 		F8632E6E24B61E9200418BA5 /* PlaceholderStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderStatus.swift; sourceTree = "<group>"; };
 		F8632E6F24B61E9200418BA5 /* Placeholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		F8632E7524B61F9C00418BA5 /* SuggestionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsVC.swift; sourceTree = "<group>"; };
+		F8632E7724B6222D00418BA5 /* ReminderFormState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderFormState.swift; sourceTree = "<group>"; };
+		F8632E7924B6224D00418BA5 /* ReminderFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderFormViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +295,8 @@
 			children = (
 				F8632E7424B61F6700418BA5 /* Suggestions */,
 				F8632E6824B61DE000418BA5 /* ReminderFormVC.swift */,
+				F8632E7724B6222D00418BA5 /* ReminderFormState.swift */,
+				F8632E7924B6224D00418BA5 /* ReminderFormViewModel.swift */,
 				F8632E6724B61DE000418BA5 /* ReminderFormRouter.swift */,
 			);
 			path = Form;
@@ -450,6 +456,7 @@
 				F8632E5C24B5DC5D00418BA5 /* RemindersViewModel.swift in Sources */,
 				F8632E3724B5837000418BA5 /* RemindersVC.swift in Sources */,
 				F8632E6524B616D500418BA5 /* NSLocalized+Global.swift in Sources */,
+				F8632E7A24B6224D00418BA5 /* ReminderFormViewModel.swift in Sources */,
 				F8632E3524B5830900418BA5 /* NavigationController.swift in Sources */,
 				F8632E7624B61F9C00418BA5 /* SuggestionsVC.swift in Sources */,
 				F8632E4524B596AD00418BA5 /* AppIcons.swift in Sources */,
@@ -458,6 +465,7 @@
 				F8632E5124B5D46800418BA5 /* LitenLogger.swift in Sources */,
 				F8632E6324B60F7500418BA5 /* ReminderFormCoordinator.swift in Sources */,
 				F8632E4E24B5A03500418BA5 /* CameraProvider.swift in Sources */,
+				F8632E7824B6222D00418BA5 /* ReminderFormState.swift in Sources */,
 				F8632E7024B61E9200418BA5 /* PlaceholderView.swift in Sources */,
 				F8632E6A24B61DE000418BA5 /* ReminderFormVC.swift in Sources */,
 				F8632E7124B61E9200418BA5 /* UIViewController+PlaceholderStatus.swift in Sources */,
