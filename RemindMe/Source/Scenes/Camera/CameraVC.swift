@@ -25,6 +25,8 @@ class CameraVC: UIViewController {
         return $0
     }(UIButton(type: .custom))
     
+    lazy var cameraProvider = CameraProvider()
+    
     // MARK: - View Life cycle
     override func loadView() {
         super.loadView()
@@ -35,6 +37,7 @@ class CameraVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .cyan
+        showCameraFeed()
     }
     
     // MARK: - Initial Setup
@@ -51,6 +54,20 @@ class CameraVC: UIViewController {
                            captureButton.heightAnchor.constraint(equalToConstant: 60.0),
                            captureButton.widthAnchor.constraint(equalToConstant: 60.0)]
         constraints.forEach { $0.isActive = true }
+    }
+    
+    private func showCameraFeed() {
+        cameraProvider.configureCamera { [weak self] (previewLayer, error) in
+            guard let previewLayer = previewLayer,
+                let weakSelf = self else {
+                    print(error)
+                    return
+            }
+            
+            weakSelf.cameraFeedView.layer.insertSublayer(previewLayer,
+                                                         at: 0)
+            previewLayer.frame = weakSelf.cameraFeedView.frame
+        }
     }
     
     // MARK: - Actions
