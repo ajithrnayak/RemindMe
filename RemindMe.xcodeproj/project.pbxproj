@@ -14,6 +14,7 @@
 		F8632E0A24B575E300418BA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8632E0824B575E300418BA5 /* LaunchScreen.storyboard */; };
 		F8632E1524B575E400418BA5 /* RemindMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E1424B575E400418BA5 /* RemindMeTests.swift */; };
 		F8632E2024B575E400418BA5 /* RemindMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E1F24B575E400418BA5 /* RemindMeUITests.swift */; };
+		F8632E3524B5830900418BA5 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E3424B5830900418BA5 /* NavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		F8632E1F24B575E400418BA5 /* RemindMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMeUITests.swift; sourceTree = "<group>"; };
 		F8632E2124B575E400418BA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8632E2D24B5792500418BA5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F8632E3424B5830900418BA5 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 		F8632E3124B582AF00418BA5 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				F8632E3424B5830900418BA5 /* NavigationController.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8632DFB24B575E300418BA5 /* AppDelegate.swift in Sources */,
+				F8632E3524B5830900418BA5 /* NavigationController.swift in Sources */,
 				F8632E0524B575E300418BA5 /* RemindMe.xcdatamodeld in Sources */,
 				F8632DFD24B575E300418BA5 /* SceneDelegate.swift in Sources */,
 			);
