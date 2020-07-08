@@ -34,6 +34,13 @@ class ReminderFormVC: UIViewController {
         return $0
     }(ReminderInputView())
     
+    private let suggestionsVC = SuggestionsVC.newInstance()
+    
+    private let suggestionsContainerView: UIView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(UIView())
+    
     // MARK: - Initializers
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -53,11 +60,18 @@ class ReminderFormVC: UIViewController {
     override func loadView() {
         super.loadView()
         setupInputView()
+        setupSuggestionsView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        configureNavigationActions()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        reminderInputView.makeTextfieldActive(true)
     }
     
     // MARK: - Actions
@@ -82,6 +96,24 @@ extension ReminderFormVC {
                            reminderInputView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                            reminderInputView.heightAnchor.constraint(equalToConstant: 80.0)]
         constraints.forEach { $0.isActive = true }
+    }
+    
+    private func setupSuggestionsView() {
+        view.addSubview(suggestionsContainerView)
+        let containerConstraints = [suggestionsContainerView.topAnchor.constraint(equalTo: reminderInputView.bottomAnchor,
+                                                                                  constant: 16.0),
+                                    suggestionsContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                                    suggestionsContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                                    suggestionsContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)]
+        containerConstraints.forEach { $0.isActive = true }
+        
+        suggestionsContainerView.addSubview(suggestionsVC.view)
+        suggestionsVC.view.addConstraintsToMatch(superView: suggestionsContainerView)
+    }
+    
+    private func configureNavigationActions() {
+        navigationItem.leftBarButtonItem = backBarButtonItem
+        navigationItem.rightBarButtonItem = doneBarButtonItem
     }
 }
 

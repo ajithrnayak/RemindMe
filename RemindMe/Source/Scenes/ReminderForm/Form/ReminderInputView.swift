@@ -59,6 +59,7 @@ class ReminderInputView: UIView {
         super.init(frame: frame)
         setupInputView()
         setupBottomBorder()
+        backgroundColor = .white
     }
     
     convenience init() {

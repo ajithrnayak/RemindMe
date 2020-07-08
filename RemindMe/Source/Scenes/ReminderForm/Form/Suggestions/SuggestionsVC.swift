@@ -12,6 +12,7 @@ class SuggestionsVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.translatesAutoresizingMaskIntoConstraints = false
     }
 
     // MARK: - Table view data source
@@ -81,4 +82,12 @@ class SuggestionsVC: UITableViewController {
     }
     */
 
+}
+
+// MARK: - Factory Initializer
+extension SuggestionsVC {
+    class func newInstance() -> SuggestionsVC {
+        let suggestionsVC = SuggestionsVC()
+        return suggestionsVC
+    }
 }
