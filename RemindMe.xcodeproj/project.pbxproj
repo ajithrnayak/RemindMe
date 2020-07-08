@@ -22,6 +22,7 @@
 		F8632E4524B596AD00418BA5 /* AppIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E4424B596AD00418BA5 /* AppIcons.swift */; };
 		F8632E4724B5981300418BA5 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E4624B5981300418BA5 /* CameraVC.swift */; };
 		F8632E4924B5985E00418BA5 /* RemindersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E4824B5985E00418BA5 /* RemindersRouter.swift */; };
+		F8632E4E24B5A03500418BA5 /* CameraProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E4D24B5A03500418BA5 /* CameraProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		F8632E4424B596AD00418BA5 /* AppIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcons.swift; sourceTree = "<group>"; };
 		F8632E4624B5981300418BA5 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		F8632E4824B5985E00418BA5 /* RemindersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersRouter.swift; sourceTree = "<group>"; };
+		F8632E4D24B5A03500418BA5 /* CameraProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				F8632E3024B582AF00418BA5 /* Scenes */,
+				F8632E4A24B59F7E00418BA5 /* Reusables */,
 				F8632E3324B582AF00418BA5 /* Helpers */,
 			);
 			path = Source;
@@ -221,6 +224,22 @@
 				F8632E4424B596AD00418BA5 /* AppIcons.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		F8632E4A24B59F7E00418BA5 /* Reusables */ = {
+			isa = PBXGroup;
+			children = (
+				F8632E4C24B5A00400418BA5 /* Camera */,
+			);
+			path = Reusables;
+			sourceTree = "<group>";
+		};
+		F8632E4C24B5A00400418BA5 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				F8632E4D24B5A03500418BA5 /* CameraProvider.swift */,
+			);
+			path = Camera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,6 +379,7 @@
 				F8632E4524B596AD00418BA5 /* AppIcons.swift in Sources */,
 				F8632E0524B575E300418BA5 /* RemindMe.xcdatamodeld in Sources */,
 				F8632DFD24B575E300418BA5 /* SceneDelegate.swift in Sources */,
+				F8632E4E24B5A03500418BA5 /* CameraProvider.swift in Sources */,
 				F8632E4924B5985E00418BA5 /* RemindersRouter.swift in Sources */,
 				F8632E4724B5981300418BA5 /* CameraVC.swift in Sources */,
 				F8632E4224B591F000418BA5 /* UIView+Layer.swift in Sources */,
