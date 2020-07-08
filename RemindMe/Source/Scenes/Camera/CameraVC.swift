@@ -37,9 +37,13 @@ class CameraVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .cyan
-        showCameraFeed()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showCameraFeed()
+    }
+
     // MARK: - Initial Setup
     private func setupCameraFeed() {
         view.addSubview(cameraFeedView)
@@ -60,7 +64,7 @@ class CameraVC: UIViewController {
         cameraProvider.configureCamera { [weak self] (previewLayer, error) in
             guard let previewLayer = previewLayer,
                 let weakSelf = self else {
-                    print(error)
+                    Log.error(error?.localizedDescription as Any)
                     return
             }
             

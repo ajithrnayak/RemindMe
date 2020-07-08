@@ -23,6 +23,7 @@
 		F8632E4724B5981300418BA5 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E4624B5981300418BA5 /* CameraVC.swift */; };
 		F8632E4924B5985E00418BA5 /* RemindersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E4824B5985E00418BA5 /* RemindersRouter.swift */; };
 		F8632E4E24B5A03500418BA5 /* CameraProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E4D24B5A03500418BA5 /* CameraProvider.swift */; };
+		F8632E5124B5D46800418BA5 /* LitenLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E5024B5D46800418BA5 /* LitenLogger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		F8632E4624B5981300418BA5 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		F8632E4824B5985E00418BA5 /* RemindersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersRouter.swift; sourceTree = "<group>"; };
 		F8632E4D24B5A03500418BA5 /* CameraProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraProvider.swift; sourceTree = "<group>"; };
+		F8632E5024B5D46800418BA5 /* LitenLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LitenLogger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 		F8632E3324B582AF00418BA5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F8632E4F24B5D46800418BA5 /* LitenLogger */,
 				F8632E4324B5968F00418BA5 /* Styles */,
 				F8632E3E24B591D500418BA5 /* Extensions */,
 			);
@@ -240,6 +243,14 @@
 				F8632E4D24B5A03500418BA5 /* CameraProvider.swift */,
 			);
 			path = Camera;
+			sourceTree = "<group>";
+		};
+		F8632E4F24B5D46800418BA5 /* LitenLogger */ = {
+			isa = PBXGroup;
+			children = (
+				F8632E5024B5D46800418BA5 /* LitenLogger.swift */,
+			);
+			path = LitenLogger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +390,7 @@
 				F8632E4524B596AD00418BA5 /* AppIcons.swift in Sources */,
 				F8632E0524B575E300418BA5 /* RemindMe.xcdatamodeld in Sources */,
 				F8632DFD24B575E300418BA5 /* SceneDelegate.swift in Sources */,
+				F8632E5124B5D46800418BA5 /* LitenLogger.swift in Sources */,
 				F8632E4E24B5A03500418BA5 /* CameraProvider.swift in Sources */,
 				F8632E4924B5985E00418BA5 /* RemindersRouter.swift in Sources */,
 				F8632E4724B5981300418BA5 /* CameraVC.swift in Sources */,
