@@ -37,6 +37,7 @@
 		F8632E7824B6222D00418BA5 /* ReminderFormState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E7724B6222D00418BA5 /* ReminderFormState.swift */; };
 		F8632E7A24B6224D00418BA5 /* ReminderFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E7924B6224D00418BA5 /* ReminderFormViewModel.swift */; };
 		F8632E7C24B634A800418BA5 /* ReminderInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E7B24B634A700418BA5 /* ReminderInputView.swift */; };
+		F8632E7E24B6470000418BA5 /* VisionMLWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E7D24B6470000418BA5 /* VisionMLWorker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		F8632E7724B6222D00418BA5 /* ReminderFormState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderFormState.swift; sourceTree = "<group>"; };
 		F8632E7924B6224D00418BA5 /* ReminderFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderFormViewModel.swift; sourceTree = "<group>"; };
 		F8632E7B24B634A700418BA5 /* ReminderInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderInputView.swift; sourceTree = "<group>"; };
+		F8632E7D24B6470000418BA5 /* VisionMLWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionMLWorker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +302,7 @@
 				F8632E7724B6222D00418BA5 /* ReminderFormState.swift */,
 				F8632E7924B6224D00418BA5 /* ReminderFormViewModel.swift */,
 				F8632E6724B61DE000418BA5 /* ReminderFormRouter.swift */,
+				F8632E7D24B6470000418BA5 /* VisionMLWorker.swift */,
 				F8632E7B24B634A700418BA5 /* ReminderInputView.swift */,
 			);
 			path = Form;
@@ -473,6 +476,7 @@
 				F8632E6A24B61DE000418BA5 /* ReminderFormVC.swift in Sources */,
 				F8632E7124B61E9200418BA5 /* UIViewController+PlaceholderStatus.swift in Sources */,
 				F8632E4924B5985E00418BA5 /* RemindersRouter.swift in Sources */,
+				F8632E7E24B6470000418BA5 /* VisionMLWorker.swift in Sources */,
 				F8632E4724B5981300418BA5 /* CameraVC.swift in Sources */,
 				F8632E4224B591F000418BA5 /* UIView+Layer.swift in Sources */,
 				F8632E4024B591D500418BA5 /* UIView+NSLayoutConstraint.swift in Sources */,
