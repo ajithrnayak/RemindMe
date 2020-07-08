@@ -33,6 +33,7 @@
 		F8632E7124B61E9200418BA5 /* UIViewController+PlaceholderStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E6D24B61E9200418BA5 /* UIViewController+PlaceholderStatus.swift */; };
 		F8632E7224B61E9200418BA5 /* PlaceholderStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E6E24B61E9200418BA5 /* PlaceholderStatus.swift */; };
 		F8632E7324B61E9200418BA5 /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E6F24B61E9200418BA5 /* Placeholder.swift */; };
+		F8632E7624B61F9C00418BA5 /* SuggestionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E7524B61F9C00418BA5 /* SuggestionsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		F8632E6D24B61E9200418BA5 /* UIViewController+PlaceholderStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PlaceholderStatus.swift"; sourceTree = "<group>"; };
 		F8632E6E24B61E9200418BA5 /* PlaceholderStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderStatus.swift; sourceTree = "<group>"; };
 		F8632E6F24B61E9200418BA5 /* Placeholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
+		F8632E7524B61F9C00418BA5 /* SuggestionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +289,7 @@
 		F8632E6624B61DE000418BA5 /* Form */ = {
 			isa = PBXGroup;
 			children = (
+				F8632E7424B61F6700418BA5 /* Suggestions */,
 				F8632E6824B61DE000418BA5 /* ReminderFormVC.swift */,
 				F8632E6724B61DE000418BA5 /* ReminderFormRouter.swift */,
 			);
@@ -302,6 +305,14 @@
 				F8632E6F24B61E9200418BA5 /* Placeholder.swift */,
 			);
 			path = PlaceholderStatus;
+			sourceTree = "<group>";
+		};
+		F8632E7424B61F6700418BA5 /* Suggestions */ = {
+			isa = PBXGroup;
+			children = (
+				F8632E7524B61F9C00418BA5 /* SuggestionsVC.swift */,
+			);
+			path = Suggestions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,6 +451,7 @@
 				F8632E3724B5837000418BA5 /* RemindersVC.swift in Sources */,
 				F8632E6524B616D500418BA5 /* NSLocalized+Global.swift in Sources */,
 				F8632E3524B5830900418BA5 /* NavigationController.swift in Sources */,
+				F8632E7624B61F9C00418BA5 /* SuggestionsVC.swift in Sources */,
 				F8632E4524B596AD00418BA5 /* AppIcons.swift in Sources */,
 				F8632E0524B575E300418BA5 /* RemindMe.xcdatamodeld in Sources */,
 				F8632DFD24B575E300418BA5 /* SceneDelegate.swift in Sources */,

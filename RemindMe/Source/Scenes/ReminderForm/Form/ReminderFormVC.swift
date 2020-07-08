@@ -33,8 +33,6 @@ class ReminderFormVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        let placeholder = Placeholder(loadingMsg: "Loading..")
-        view.showPlaceholder(placeholder)
     }
     
     override func viewDidAppear(_ animated: Bool) {
