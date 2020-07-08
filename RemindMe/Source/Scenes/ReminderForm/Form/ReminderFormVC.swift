@@ -8,10 +8,26 @@
 
 import UIKit
 
+protocol ReminderFormDelegate: class {
+    func reminderFormDidRequestCancel()
+}
+
 class ReminderFormVC: UIViewController {
     
     // MARK: - Properties
+    weak var delegate: ReminderFormDelegate?
+    
     private var router: ReminderFormRouter!
+    
+    private let backBarButtonItem = UIBarButtonItem(title: localized("Cancel"),
+                                                    style: .plain,
+                                                    target: self,
+                                                    action: #selector(cancelReminderFormAction))
+    
+    private let doneBarButtonItem = UIBarButtonItem(title: localized("Done"),
+                                                    style: .done,
+                                                    target: self,
+                                                    action: #selector(saveReminderAction))
     
     // MARK: - Initializers
 
@@ -35,9 +51,14 @@ class ReminderFormVC: UIViewController {
         view.backgroundColor = .white
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    // MARK: - Actions
+    @objc
+    func cancelReminderFormAction() {
+        delegate?.reminderFormDidRequestCancel()
+    }
+    
+    @objc
+    func saveReminderAction() {
     }
     
 }
