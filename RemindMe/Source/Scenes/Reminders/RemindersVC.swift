@@ -19,12 +19,15 @@ class RemindersVC: UIViewController {
     
     private let createReminderButton: UIButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.backgroundColor = .systemBlue
-        let boldConfiguration = UIImage.SymbolConfiguration(weight: .bold)
-        let boldSymbolImage = UIImage(systemName: "plus.circle.fil",
-                                      withConfiguration: boldConfiguration)
-        $0.imageView?.image = boldSymbolImage?.withTintColor(.cyan,
-                                                             renderingMode: .alwaysOriginal)
+        $0.backgroundColor = .white
+        $0.setTitleColor(.systemPink, for: .normal)
+        $0.setTitle("+", for: .normal)
+        $0.titleLabel?.font = UIFont.systemFont(ofSize: 42.0, weight: .bold)
+        $0.titleLabel?.textAlignment = .center
+        $0.contentVerticalAlignment = .center
+        $0.contentHorizontalAlignment = .center
+        $0.addTarget(self, action: #selector(createReminderButtonAction), for: .touchUpInside)
+        $0.fullyRounded(diameter: 60.0)
         return $0
     }(UIButton(type: .custom))
     
@@ -56,10 +59,17 @@ class RemindersVC: UIViewController {
                                                                         constant: -8.0),
                            createReminderButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                                           constant: -16.0),
-                           createReminderButton.heightAnchor.constraint(equalToConstant: 50.0),
-                           createReminderButton.widthAnchor.constraint(equalToConstant: 50.0)]
+                           createReminderButton.heightAnchor.constraint(equalToConstant: 60.0),
+                           createReminderButton.widthAnchor.constraint(equalToConstant: 60.0)]
         constraints.forEach { $0.isActive = true }
     }
+    
+    // MARK: - Actions
+    @objc
+    func createReminderButtonAction() {
+        print("Hello")
+    }
+
 }
 
 // MARK: - Factory Initializer
