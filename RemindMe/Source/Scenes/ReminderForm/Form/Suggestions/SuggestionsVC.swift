@@ -63,6 +63,7 @@ class SuggestionsVC: UITableViewController {
         let suggestion = viewModel.suggestions.value[indexPath.row]
         // Configure the cell...
         cell.textLabel?.text = suggestion
+        cell.textLabel?.textColor = .black
         cell.backgroundColor = .white
         return cell
     }
