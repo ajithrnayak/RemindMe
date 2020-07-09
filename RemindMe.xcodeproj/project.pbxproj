@@ -10,6 +10,7 @@
 		F813B28324B70B86004B3475 /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813B28224B70B86004B3475 /* TaskType.swift */; };
 		F813B28624B70C29004B3475 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813B28524B70C29004B3475 /* Box.swift */; };
 		F813B28824B70E88004B3475 /* SuggestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813B28724B70E88004B3475 /* SuggestionsViewModel.swift */; };
+		F813B28B24B7214A004B3475 /* ReminderOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813B28A24B7214A004B3475 /* ReminderOptionsView.swift */; };
 		F8632DFB24B575E300418BA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632DFA24B575E300418BA5 /* AppDelegate.swift */; };
 		F8632DFD24B575E300418BA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632DFC24B575E300418BA5 /* SceneDelegate.swift */; };
 		F8632E0524B575E300418BA5 /* RemindMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8632E0324B575E300418BA5 /* RemindMe.xcdatamodeld */; };
@@ -66,6 +67,7 @@
 		F813B28224B70B86004B3475 /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
 		F813B28524B70C29004B3475 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		F813B28724B70E88004B3475 /* SuggestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsViewModel.swift; sourceTree = "<group>"; };
+		F813B28A24B7214A004B3475 /* ReminderOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderOptionsView.swift; sourceTree = "<group>"; };
 		F8632DF724B575E300418BA5 /* RemindMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemindMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8632DFA24B575E300418BA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8632DFC24B575E300418BA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +141,15 @@
 				F813B28524B70C29004B3475 /* Box.swift */,
 			);
 			path = Boxing;
+			sourceTree = "<group>";
+		};
+		F813B28924B72104004B3475 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F8632E7B24B634A700418BA5 /* ReminderInputView.swift */,
+				F813B28A24B7214A004B3475 /* ReminderOptionsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F8632DEE24B575E300418BA5 = {
@@ -324,7 +335,7 @@
 				F8632E7924B6224D00418BA5 /* ReminderFormViewModel.swift */,
 				F813B28224B70B86004B3475 /* TaskType.swift */,
 				F8632E6724B61DE000418BA5 /* ReminderFormRouter.swift */,
-				F8632E7B24B634A700418BA5 /* ReminderInputView.swift */,
+				F813B28924B72104004B3475 /* Views */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -515,6 +526,7 @@
 				F8632E8324B6686800418BA5 /* MobileNetV2.mlmodel in Sources */,
 				F8632E7824B6222D00418BA5 /* ReminderFormState.swift in Sources */,
 				F8632E7024B61E9200418BA5 /* PlaceholderView.swift in Sources */,
+				F813B28B24B7214A004B3475 /* ReminderOptionsView.swift in Sources */,
 				F8632E6A24B61DE000418BA5 /* ReminderFormVC.swift in Sources */,
 				F8632E7124B61E9200418BA5 /* UIViewController+PlaceholderStatus.swift in Sources */,
 				F8632E4924B5985E00418BA5 /* RemindersRouter.swift in Sources */,
