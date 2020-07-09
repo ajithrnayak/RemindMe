@@ -77,7 +77,12 @@ class ReminderFormVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureNavigationActions()
-        suggestionsVC.delegate = self
+        
+        suggestionsVC.delegate          = self
+        reminderDueDateView.delegate    = self
+        reminderInputView.delegate      = self
+        reminderOptionsView.delegate    = self
+        
         loadForm()
     }
     
@@ -127,7 +132,7 @@ class ReminderFormVC: UIViewController {
         })
         
         viewModel?.notifyEnabled.bind(listener: {[weak self] (notifyOn) in
-            self?.reminderOptionsView.notifyButton.isSelected = notifyOn
+            self?.reminderOptionsView.setNotifyButtonState(isSelectd: notifyOn)
         })
     }
 
@@ -213,9 +218,37 @@ extension ReminderFormVC {
     }
 }
 
+// MARK: - SuggestionsDelegate
 extension ReminderFormVC: SuggestionsDelegate {
     func suggestions(_ suggestions: SuggestionsVC, didPick suggestion: String) {
         viewModel?.updateReminderTask(suggestion)
+    }
+}
+
+// MARK: - ReminderInputViewDelegate
+extension ReminderFormVC: ReminderInputViewDelegate {
+    func reminderInput(_ reminderInputView: ReminderInputView,
+                       didChangeText text: String?) {
+        viewModel?.setReminderTask(text)
+    }
+}
+
+// MARK: - DateInputFieldViewDelegate
+extension ReminderFormVC: DateInputFieldViewDelegate {
+    func dateInputField(_ dateInputFielView: DateInputFieldView,
+                        didChange date: Date) {
+        viewModel?.setDueDate(date)
+    }
+}
+
+extension ReminderFormVC: ReminderOptionsViewDelegate {
+    func reminderOptions(_ reminderOptionsView: ReminderOptionsView,
+                         didSelectNotify isSelected: Bool) {
+        viewModel?.setNotifyFlag(isSelected)
+    }
+    
+    func reminderOptionsDidSelectDone() {
+        
     }
 }
 

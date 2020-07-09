@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol DateInputFieldViewDelegate: class{
+    func dateInputField(_ dateInputFielView: DateInputFieldView,
+                        didChange date: Date)
+}
+
 class DateInputFieldView: UIView {
+    
+    weak var delegate: DateInputFieldViewDelegate?
     
     func makeDatefieldActive(_ flag: Bool) {
          if flag {
@@ -52,6 +59,8 @@ class DateInputFieldView: UIView {
     
     let datePicker: UIDatePicker = {
         $0.datePickerMode = .dateAndTime
+        $0.addTarget(self, action: #selector(datePickerValueChanged),
+                     for: .valueChanged)
         return $0
     }(UIDatePicker())
     
@@ -69,6 +78,8 @@ class DateInputFieldView: UIView {
         setupDateFieldView()
         setupDateFieldInputView()
         setupBottomBorder()
+        
+        dateTextField.delegate = self
     }
     
     convenience init() {
@@ -77,6 +88,12 @@ class DateInputFieldView: UIView {
     
     required init(coder aDecoder: NSCoder) {
         fatalError("This class does not support NSCoding")
+    }
+    
+    // MARK: - actions
+    @objc
+    func datePickerValueChanged() {
+        delegate?.dateInputField(self, didChange: datePicker.date)
     }
     
     // MARK: - Setup
@@ -114,4 +131,16 @@ class DateInputFieldView: UIView {
         borderConstraints.forEach({ $0.isActive = true })
     }
 
+}
+
+extension DateInputFieldView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return false
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let dateNow = Date()
+        self.datePicker.minimumDate = dateNow
+        self.datePicker.date = dateNow
+    }
 }

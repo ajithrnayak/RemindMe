@@ -50,10 +50,14 @@ class ReminderOptionsView: UIView {
         return $0
     }(UIView())
     
+    func setNotifyButtonState(isSelectd: Bool) {
+        self.notifyButton.isSelected = isSelectd
+    }
+    
     // MARK: - Actions
     @objc
     func notifyButtonAction() {
-        delegate?.reminderOptions(self, didSelectNotify: notifyButton.isSelected)
+        delegate?.reminderOptions(self, didSelectNotify: !notifyButton.isSelected)
     }
     
     @objc
@@ -88,11 +92,13 @@ class ReminderOptionsView: UIView {
                            notifyButton.centerYAnchor.constraint(equalTo: self.centerYAnchor)]
         constraints.forEach({ $0.isActive = true })
         
-        addSubview(doneButton)
-        let doneConstraints = [doneButton.heightAnchor.constraint(equalToConstant: 44.0),
-                           doneButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20.0),
-                           doneButton.centerYAnchor.constraint(equalTo: self.centerYAnchor)]
-        doneConstraints.forEach({ $0.isActive = true })
+        /*
+         addSubview(doneButton)
+         let doneConstraints = [doneButton.heightAnchor.constraint(equalToConstant: 44.0),
+         doneButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20.0),
+         doneButton.centerYAnchor.constraint(equalTo: self.centerYAnchor)]
+         doneConstraints.forEach({ $0.isActive = true })
+         */
     }
     
     private func setupTopBorder() {

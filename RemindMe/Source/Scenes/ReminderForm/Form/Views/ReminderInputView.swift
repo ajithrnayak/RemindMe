@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol ReminderInputViewDelegate: class {
+    func reminderInput(_ reminderInputView: ReminderInputView,
+                       didChangeText text: String?)
+}
+
 class ReminderInputView: UIView {
+    
+    weak var delegate: ReminderInputViewDelegate?
     
     func makeTextfieldActive(_ flag: Bool) {
         if flag {
@@ -50,6 +57,7 @@ class ReminderInputView: UIView {
         $0.returnKeyType        = .done
         $0.clearButtonMode      = .whileEditing
         $0.placeholder          = localized("Enter your task")
+        $0.addTarget(self, action: #selector(inputFieldValueChanged), for: .editingChanged)
         $0.contentVerticalAlignment = .center
         return $0
     }(UITextField())
@@ -77,6 +85,12 @@ class ReminderInputView: UIView {
         fatalError("This class does not support NSCoding")
     }
     
+    // MARK: - Actions
+    @objc
+    func inputFieldValueChanged() {
+        delegate?.reminderInput(self, didChangeText: inputField.text)
+    }
+
     // MARK: - Setup
     
     private func setupInputView() {
@@ -115,6 +129,6 @@ class ReminderInputView: UIView {
 // MARK: - UITextFieldDelegate
 extension ReminderInputView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return true
+        return false
     }
 }

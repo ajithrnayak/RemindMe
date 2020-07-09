@@ -135,6 +135,21 @@ class ReminderFormViewModel {
         self.reminderTask.value             = task
     }
     
+    func setReminderTask(_ task: String?) {
+        // we will not update view model property to avoid a loop
+        self.state?.reminder?.reminderTask  = task
+    }
+    
+    func setDueDate(_ date: Date) {
+        self.state?.reminder?.dueDate   = date
+        self.dueDate.value              = self.state?.reminder?.dueDateString
+    }
+    
+    func setNotifyFlag(_ flag: Bool) {
+        self.state?.reminder?.notify    = flag
+        self.notifyEnabled.value        = flag
+    }
+    
     // MARK: - Helper
 
     func reminderFormTitle() -> String {
