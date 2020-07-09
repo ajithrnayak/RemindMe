@@ -10,6 +10,7 @@ import UIKit
 
 protocol ReminderFormDelegate: class {
     func reminderFormDidRequestCancel()
+    func reminderFormDidSaveReminder()
 }
 
 class ReminderFormVC: UIViewController {
