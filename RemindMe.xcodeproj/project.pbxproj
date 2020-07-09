@@ -49,6 +49,8 @@
 		F88ACF2724B7878C00A82BA2 /* Reminder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88ACF2524B7878C00A82BA2 /* Reminder+CoreDataClass.swift */; };
 		F88ACF2824B7878C00A82BA2 /* Reminder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88ACF2624B7878C00A82BA2 /* Reminder+CoreDataProperties.swift */; };
 		F88ACF2C24B78F6800A82BA2 /* ReminderFormWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88ACF2B24B78F6800A82BA2 /* ReminderFormWorker.swift */; };
+		F88ACF3224B7980900A82BA2 /* RemindersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88ACF3124B7980900A82BA2 /* RemindersListViewModel.swift */; };
+		F88ACF3424B7A04B00A82BA2 /* RemindersListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88ACF3324B7A04B00A82BA2 /* RemindersListWorker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +120,8 @@
 		F88ACF2524B7878C00A82BA2 /* Reminder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F88ACF2624B7878C00A82BA2 /* Reminder+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F88ACF2B24B78F6800A82BA2 /* ReminderFormWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderFormWorker.swift; sourceTree = "<group>"; };
+		F88ACF3124B7980900A82BA2 /* RemindersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListViewModel.swift; sourceTree = "<group>"; };
+		F88ACF3324B7A04B00A82BA2 /* RemindersListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListWorker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +283,8 @@
 			isa = PBXGroup;
 			children = (
 				F8632E3A24B5854800418BA5 /* RemindersListVC.swift */,
+				F88ACF3124B7980900A82BA2 /* RemindersListViewModel.swift */,
+				F88ACF3324B7A04B00A82BA2 /* RemindersListWorker.swift */,
 			);
 			path = RemindersList;
 			sourceTree = "<group>";
@@ -549,6 +555,7 @@
 				F8632E7624B61F9C00418BA5 /* SuggestionsVC.swift in Sources */,
 				F8632E4524B596AD00418BA5 /* AppIcons.swift in Sources */,
 				F88ACF2824B7878C00A82BA2 /* Reminder+CoreDataProperties.swift in Sources */,
+				F88ACF3424B7A04B00A82BA2 /* RemindersListWorker.swift in Sources */,
 				F8632E0524B575E300418BA5 /* RemindMe.xcdatamodeld in Sources */,
 				F8632E8724B67CB400418BA5 /* Resnet50.mlmodel in Sources */,
 				F8632DFD24B575E300418BA5 /* SceneDelegate.swift in Sources */,
@@ -570,6 +577,7 @@
 				F8632E4724B5981300418BA5 /* CameraVC.swift in Sources */,
 				F8632E4224B591F000418BA5 /* UIView+Layer.swift in Sources */,
 				F8632E4024B591D500418BA5 /* UIView+NSLayoutConstraint.swift in Sources */,
+				F88ACF3224B7980900A82BA2 /* RemindersListViewModel.swift in Sources */,
 				F8632E7324B61E9200418BA5 /* Placeholder.swift in Sources */,
 				F813B28824B70E88004B3475 /* SuggestionsViewModel.swift in Sources */,
 				F8632E7224B61E9200418BA5 /* PlaceholderStatus.swift in Sources */,
