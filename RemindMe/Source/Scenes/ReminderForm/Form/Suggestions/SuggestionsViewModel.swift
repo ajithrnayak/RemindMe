@@ -7,3 +7,29 @@
 //
 
 import Foundation
+
+class SuggestionsViewModel {
+    var suggestions: Box<[String]> = Box([])
+    
+    func loadSuggestions(for taskType: TaskType) {
+        let suggestions = taskSuggestions(for: taskType)
+        self.suggestions = Box(suggestions)
+    }
+    
+    func taskSuggestions(for taskType: TaskType) -> [String] {
+        switch taskType {
+        case .vehicle:
+            return []
+        case .apparel:
+            return []
+        case .book:
+            return []
+        case .grocery:
+            return []
+        case .code:
+            return []
+        case .none:
+            return []
+        }
+    }
+}
