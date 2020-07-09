@@ -26,6 +26,12 @@ class ReminderInputView: UIView {
         self.inputField.text = text
     }
     
+    func setupAccesoryView(_ view: UIView) {
+        let width = self.frame.width
+        view.frame = CGRect(x: 0.0, y: 0.0, width: width, height: 50.0)
+        inputField.inputAccessoryView = view
+    }
+    
     // MARK: - private properties
     
     private let emojiLabel: UILabel = {
@@ -52,16 +58,13 @@ class ReminderInputView: UIView {
         $0.backgroundColor = .separator
         return $0
     }(UIView())
-    
-    let reminderOptionsView = ReminderOptionsView()
-    
+        
     // MARK: - Initializers
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupInputView()
         setupBottomBorder()
-        setupAccesoryView()
         backgroundColor = .white
     }
     
@@ -74,12 +77,6 @@ class ReminderInputView: UIView {
     }
     
     // MARK: - Setup
-    
-    private func setupAccesoryView() {
-        let width = self.frame.width
-        self.reminderOptionsView.frame = CGRect(x: 0.0, y: 0.0, width: width, height: 50.0)
-        inputField.inputAccessoryView = self.reminderOptionsView
-    }
     
     private func setupInputView() {
         addSubview(emojiLabel)

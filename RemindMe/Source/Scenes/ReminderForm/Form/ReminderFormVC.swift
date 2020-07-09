@@ -42,8 +42,9 @@ class ReminderFormVC: UIViewController {
         return $0
     }(DateInputFieldView())
     
+    let reminderOptionsView = ReminderOptionsView()
+
     private let suggestionsVC = SuggestionsVC.newInstance()
-    
     private let suggestionsContainerView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
@@ -115,6 +116,7 @@ class ReminderFormVC: UIViewController {
 extension ReminderFormVC {
     private func setupInputView() {
         view.addSubview(reminderInputView)
+        reminderInputView.setupAccesoryView(reminderOptionsView)
         let constraints = [reminderInputView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
                            reminderInputView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                            reminderInputView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -124,6 +126,7 @@ extension ReminderFormVC {
     
     private func setupDueDateView() {
         view.addSubview(reminderDueDateView)
+        reminderDueDateView.setupAccesoryView(reminderOptionsView)
         let constraints = [reminderDueDateView.topAnchor.constraint(equalTo: reminderInputView.bottomAnchor),
                            reminderDueDateView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                            reminderDueDateView.trailingAnchor.constraint(equalTo: view.trailingAnchor),

@@ -22,6 +22,12 @@ class DateInputFieldView: UIView {
          self.dateTextField.text = text
      }
     
+    func setupAccesoryView(_ view: UIView) {
+        let width = self.frame.width
+        view.frame = CGRect(x: 0.0, y: 0.0, width: width, height: 50.0)
+        dateTextField.inputAccessoryView = view
+    }
+    
     // MARK: - properties
 
     let titleLabel: UILabel = {
@@ -53,9 +59,7 @@ class DateInputFieldView: UIView {
         $0.backgroundColor = .separator
         return $0
     }(UIView())
-    
-    let reminderOptionsView = ReminderOptionsView()
-    
+        
     // MARK: - Initializers
     
     override init(frame: CGRect) {
@@ -63,7 +67,7 @@ class DateInputFieldView: UIView {
         backgroundColor = .white
         setupDateFieldView()
         setupDateFieldInputView()
-        setupDateFieldAccessoryView()
+        setupBottomBorder()
     }
     
     convenience init() {
@@ -96,12 +100,6 @@ class DateInputFieldView: UIView {
     
     private func setupDateFieldInputView() {
         dateTextField.inputView = datePicker
-    }
-    
-    private func setupDateFieldAccessoryView() {
-        let width = self.frame.width
-        self.reminderOptionsView.frame = CGRect(x: 0.0, y: 0.0, width: width, height: 50.0)
-        dateTextField.inputAccessoryView = self.reminderOptionsView
     }
     
     private func setupBottomBorder() {
