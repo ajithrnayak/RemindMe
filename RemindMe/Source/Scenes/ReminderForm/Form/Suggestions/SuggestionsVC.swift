@@ -29,6 +29,8 @@ class SuggestionsVC: UITableViewController {
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "SuggestCell")
         tableView.tableFooterView = UIView()
+        tableView.backgroundColor = .white
+        view.backgroundColor = .white
         loadSuggestions()
     }
     
@@ -44,12 +46,14 @@ class SuggestionsVC: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return localized("Suggestions")
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return viewModel.suggestions.value.count
     }
     
@@ -59,6 +63,7 @@ class SuggestionsVC: UITableViewController {
         let suggestion = viewModel.suggestions.value[indexPath.row]
         // Configure the cell...
         cell.textLabel?.text = suggestion
+        cell.backgroundColor = .white
         return cell
     }
     
