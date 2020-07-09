@@ -217,8 +217,8 @@
 		F8632E2F24B582AF00418BA5 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				F88ACF2124B7870300A82BA2 /* Database */,
 				F8632E3024B582AF00418BA5 /* Scenes */,
+				F88ACF2124B7870300A82BA2 /* Database */,
 				F8632E4A24B59F7E00418BA5 /* Reusables */,
 				F8632E3324B582AF00418BA5 /* Helpers */,
 			);
