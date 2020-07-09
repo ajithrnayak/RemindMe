@@ -19,7 +19,7 @@ enum TaskType: String {
     init?(objectType: String) {
         let objectMap = ["car": "vehicle", "bike": "vehicle", "Bicycle": "vehicle", "truck": "vehicle",
                          "jeans": "apparel","dress": "apparel","shirt": "apparel","tshirt": "apparel",
-                         "tomato": "grocery","potato": "grocery","onion": "grocery","banana": "grocery",
+                         "tomato": "grocery","potato": "grocery","pot, flowerpot": "grocery","banana": "grocery",
                          "oxford dictionary": "book", "merriam webster": "book", "book": "book"]
         let type = objectMap[objectType] ?? "none"
         self.init(rawValue: type)
