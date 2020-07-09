@@ -13,21 +13,21 @@ class SuggestionsViewModel {
     
     func loadSuggestions(for taskType: TaskType) {
         let suggestions = taskSuggestions(for: taskType)
-        self.suggestions = Box(suggestions)
+        self.suggestions.value = suggestions
     }
     
     func taskSuggestions(for taskType: TaskType) -> [String] {
         switch taskType {
         case .vehicle:
-            return []
+            return ["Give it for Service" , "Wash" , "Change oil" , "Refuel" ]
         case .apparel:
-            return []
+            return ["Give it to laundry", "Wash", "Iron" , "Exchange/ Alter" , "Return"]
         case .book:
-            return []
+            return ["Return to library", "Order online", "Return to friend", "Enquire in library"]
         case .grocery:
-            return []
+            return ["Order Groceries", "Check on Amazon refund", "Collect myntra package"]
         case .code:
-            return []
+            return ["Commit everyday", "Watch a WWDC video"]
         case .none:
             return []
         }

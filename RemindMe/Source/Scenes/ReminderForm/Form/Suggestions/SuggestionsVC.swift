@@ -14,7 +14,11 @@ protocol SuggestionsDelegate: class {
 
 class SuggestionsVC: UITableViewController {
     
-    var taskType: TaskType = .none
+    var taskType: TaskType = .none {
+        didSet {
+            viewModel.loadSuggestions(for: taskType)
+        }
+    }
     weak var delegate: SuggestionsDelegate?
     
     private let viewModel = SuggestionsViewModel()
@@ -23,6 +27,9 @@ class SuggestionsVC: UITableViewController {
         super.viewDidLoad()
         view.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "SuggestCell")
+        tableView.tableFooterView = UIView()
+        loadSuggestions()
     }
     
     // MARK: - Initial setup
@@ -47,7 +54,7 @@ class SuggestionsVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SuggestCell", for: indexPath)
         
         let suggestion = viewModel.suggestions.value[indexPath.row]
         // Configure the cell...
