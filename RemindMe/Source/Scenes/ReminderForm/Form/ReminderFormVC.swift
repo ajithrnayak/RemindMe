@@ -14,10 +14,13 @@ protocol ReminderFormDelegate: class {
 
 class ReminderFormVC: UIViewController {
     
-    // MARK: - Properties
+    var image: UIImage?
+    var reminder: Reminder?
     weak var delegate: ReminderFormDelegate?
-    
-    private var router: ReminderFormRouter!
+
+    // MARK: - Properties (private)
+    private var viewModel: ReminderFormViewModel?
+    private var router: ReminderFormRouter?
     
     private let backBarButtonItem = UIBarButtonItem(title: localized("Cancel"),
                                                     style: .plain,
@@ -67,6 +70,7 @@ class ReminderFormVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureNavigationActions()
+        loadForm()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,6 +78,20 @@ class ReminderFormVC: UIViewController {
         reminderInputView.makeTextfieldActive(true)
     }
     
+    // MARK: - Load Form
+    private func loadForm() {
+        var state: ReminderFormState?
+        if let image = image {
+            state = ReminderFormState(inputImage: image)
+        } else if let reminder = reminder {
+            state = ReminderFormState(reminder: reminder)
+        }
+        // setting title somewhere else behaves strangely so this code smell here
+        //  self.title = state?.isNewReminder ? localized("New reminder") : localized("Edit reminder")
+        self.viewModel = ReminderFormViewModel(with: state)
+        self.viewModel?.loadReminderForm()
+    }
+
     // MARK: - Actions
     @objc
     func cancelReminderFormAction() {

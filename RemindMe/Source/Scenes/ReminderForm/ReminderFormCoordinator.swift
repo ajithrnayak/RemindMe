@@ -24,7 +24,9 @@ class ReminderFormCoordinator {
     }
     
     func showNewReminderForm(using image: UIImage?) {
-        let reminderFormVC = ReminderFormVC.newInstance()
+        let reminderFormVC      = ReminderFormVC.newInstance()
+        reminderFormVC.image    = image
+        reminderFormVC.delegate = self
         navigationController?.pushViewController(reminderFormVC,
                                                  animated: true)
     }
@@ -39,5 +41,12 @@ extension ReminderFormCoordinator: CameraDelegate {
     
     func camera(_ cameraVC: CameraVC, didCapture image: UIImage?) {
         showNewReminderForm(using: image)
+    }
+}
+
+// MARK: - CameraDelegate
+extension ReminderFormCoordinator: ReminderFormDelegate {
+    func reminderFormDidRequestCancel() {
+        navigationController?.popViewController(animated: true)
     }
 }
