@@ -6,7 +6,9 @@ Create a “Smart Reminder” app with following specifications
 The “Reminder” part
 - The app works as a “Reminder” app in which you can create reminders [Title and datetime , title is derived using “Smart detection” method]
 - The app should send local notification when the reminder is due [lets keep it 5 minutes before the reminder time for simplicity]
-- User should be able to mark a reminder as “complete”. - The app will have 2 sections [ in a table view] - “Reminders” and “Overdue”. New items will appear under “Reminder” section and the items which are overdue will appear under “overdue” section. “Completed” items should disappear.
+- User should be able to mark a reminder as “complete”. 
+- The app will have 2 sections [ in a table view] 
+- “Reminders” and “Overdue”. New items will appear under “Reminder” section and the items which are overdue will appear under “overdue” section. “Completed” items should disappear.
 
 What is a “Smart” reminder
 - This is where the challenging and fun part comes.
