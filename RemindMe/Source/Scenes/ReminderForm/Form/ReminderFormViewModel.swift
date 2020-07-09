@@ -102,7 +102,8 @@ class ReminderFormViewModel {
                 DispatchQueue.main.async { [weak self] in
                     // lets take first result since we asked for only one
                     guard let result = results.first,
-                        let reminderItem = ReminderItem(identifier: result.identifier) else {
+                        let reminderItem = ReminderItem(identifier: result.identifier),
+                        reminderItem.taskType != .none else {
                             // tell them to try again
                             self?.placeholderType.value = .unknownObjectType
                             return
