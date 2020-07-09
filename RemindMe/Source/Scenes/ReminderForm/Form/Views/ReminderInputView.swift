@@ -49,9 +49,11 @@ class ReminderInputView: UIView {
     
     let bottomBorderView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.backgroundColor = .lightGray
+        $0.backgroundColor = .separator
         return $0
     }(UIView())
+    
+    let reminderOptionsView = ReminderOptionsView()
     
     // MARK: - Initializers
     
@@ -59,6 +61,7 @@ class ReminderInputView: UIView {
         super.init(frame: frame)
         setupInputView()
         setupBottomBorder()
+        setupAccesoryView()
         backgroundColor = .white
     }
     
@@ -71,6 +74,12 @@ class ReminderInputView: UIView {
     }
     
     // MARK: - Setup
+    
+    private func setupAccesoryView() {
+        let width = self.frame.width
+        self.reminderOptionsView.frame = CGRect(x: 0.0, y: 0.0, width: width, height: 50.0)
+        inputField.inputAccessoryView = self.reminderOptionsView
+    }
     
     private func setupInputView() {
         addSubview(emojiLabel)
@@ -95,9 +104,9 @@ class ReminderInputView: UIView {
     private func setupBottomBorder() {
         addSubview(bottomBorderView)
         let borderConstraints = [bottomBorderView.leadingAnchor.constraint(equalTo: self.leadingAnchor,
-                                                                           constant: 16.0),
+                                                                           constant: 20.0),
                                  bottomBorderView.trailingAnchor.constraint(equalTo: self.trailingAnchor,
-                                                                            constant: -16.0),
+                                                                            constant: -20.0),
                                  bottomBorderView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
                                  bottomBorderView.heightAnchor.constraint(equalToConstant: 1.0)]
         borderConstraints.forEach({ $0.isActive = true })
