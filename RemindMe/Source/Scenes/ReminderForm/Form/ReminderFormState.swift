@@ -21,7 +21,7 @@ struct ReminderItem {
     
     private let formatter: DateFormatter = {
         let df = DateFormatter()
-        df.dateFormat = "HH:mm E, d MMM y"
+        df.dateFormat = "hh:mm E, d MMM y"
         return df
     }()
 }
