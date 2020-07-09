@@ -14,6 +14,7 @@ enum ReminderFormPlaceholderType {
     case processing
     case failedToProcess
     case unknownObjectType
+    case empty
     case none
     
     var placeholder: Placeholder? {
@@ -35,81 +36,98 @@ enum ReminderFormPlaceholderType {
                                description: "Oops! That didn't work",
                                actionTitle: nil)
             
-        case .none:
+        case .none, .empty:
             return nil
         }
     }
 }
 
 class ReminderFormViewModel {
-    var emojiType: String?
-    var reminderTask: String?
-    var taskType: TaskType = .none
-    var placeholderType: ReminderFormPlaceholderType = .none
-    var title: String?
+    var emojiType: Box<String?>
+    var reminderTask: Box<String?>
+    var dueDate: Box<String?>
+    var notifyEnabled: Box<Bool>
+    var taskType: Box<TaskType>
+    var placeholderType: Box<ReminderFormPlaceholderType>
     
     var state: ReminderFormState?
     var visionWorker: VisionMLWorker?
     
     init(with state: ReminderFormState?) {
-        self.state = state
+        self.state              = state
+        let reminderItem        = state?.reminder
+        let isNewReminder       = reminderItem == nil
+        
+        self.placeholderType    = Box(isNewReminder ? .empty : .none)
+        self.emojiType          = Box(reminderItem?.taskType.emoji)
+        self.reminderTask       = Box(reminderItem?.reminderTask)
+        self.taskType           = Box(reminderItem?.taskType ?? .none)
+        self.dueDate            = Box(reminderItem?.dueDateString)
+        self.notifyEnabled      = Box(reminderItem?.notify ?? true)
     }
     
     func loadReminderForm() {
-        self.placeholderType = .loading
-        
         guard let state = state else {
-            self.placeholderType = .none
+            self.placeholderType.value = .empty
             return
         }
         
         if state.isNewReminder, let image = state.inputImage {
             createNewReminder(using: image)
         }
-        // else
-        // process reminder
+        else if let _ = state.reminderID {
+            // fetch reminder from database and show it
+            Log.debug("Needs implementation *pikachu face*")
+        }
     }
     
     func createNewReminder(using image: UIImage) {
         guard  let visionWorker = try? VisionMLWorker(modelFile: .resnet50) else {
-            self.placeholderType = .failedToProcess
+            self.placeholderType.value = .failedToProcess
             return
         }
+        // present a loading screen
+        self.placeholderType.value = .loading
         
+        // prepare core ML request
         self.visionWorker = visionWorker
         self.visionWorker?.setupClassificationRequest()
+        // process image async
         do {
-            try self.visionWorker?.getClassifications(for: image, completionHandler: { (results) in
+            try self.visionWorker?.getClassifications(for: image) { (results) in
                 DispatchQueue.main.async { [weak self] in
+                    // lets take first result since we asked for only one
                     guard let result = results.first,
                         let reminderItem = ReminderItem(identifier: result.identifier) else {
                             // tell them to try again
-                            self?.placeholderType = .unknownObjectType
+                            self?.placeholderType.value = .unknownObjectType
                             return
                     }
+                    // create a reminder Item
                     self?.showNewReminderItem(reminderItem)
                 }
-            })
+            }
         }
         catch {
-            self.placeholderType = .failedToProcess
+            self.placeholderType.value = .failedToProcess
         }
     }
     
     func showNewReminderItem(_ reminderItem: ReminderItem) {
         // update state and discard image
-        self.state = ReminderFormState(reminder: reminderItem)
+        self.state?.reminder        = reminderItem
         // update view model properties
-        self.placeholderType = .none
-        self.emojiType = reminderItem.taskType.emoji
-        self.reminderTask = reminderItem.reminderTask
-        self.taskType   = reminderItem.taskType
-        self.title = reminderFormTitle(isNewReminder: true)
+        self.placeholderType.value  = .none
+        self.emojiType.value        = reminderItem.taskType.emoji
+        self.reminderTask.value     = reminderItem.reminderTask
+        self.taskType.value         = reminderItem.taskType
+        self.dueDate.value          = reminderItem.dueDateString
+        self.notifyEnabled.value    = reminderItem.notify
     }
     
     // MARK: - Helper
 
-    private func reminderFormTitle(isNewReminder: Bool) -> String {
-        return isNewReminder ? localized("New reminder") : localized("Edit reminder")
+    func reminderFormTitle() -> String {
+        return state!.isNewReminder ? localized("New reminder") : localized("Edit reminder")
     }
 }

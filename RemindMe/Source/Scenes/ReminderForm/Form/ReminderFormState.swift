@@ -12,9 +12,18 @@ import UIKit
 struct ReminderItem {
     let taskType: TaskType
     var reminderTask: String?
-    var dueDate: Date
+    var dueDate: Date?
     var notify: Bool
-    let reminderID: String
+    
+    var dueDateString: String? {
+        return dueDate == nil ? nil : formatter.string(from: dueDate!)
+    }
+    
+    private let formatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateFormat = "HH:mm E, d MMM y"
+        return df
+    }()
 }
 
 extension ReminderItem {
@@ -22,11 +31,10 @@ extension ReminderItem {
         guard let taskType = TaskType(objectIdentifier: identifier) else {
             return nil
         }
-        let newReminderID = UUID().uuidString
-        self.reminderID = newReminderID
+        
         self.taskType   = taskType
         self.reminderTask = nil
-        self.dueDate    = Date()
+        self.dueDate    = nil
         self.notify     = true
     }
 }
@@ -34,18 +42,19 @@ extension ReminderItem {
 struct ReminderFormState {
     var reminder: ReminderItem?
     var inputImage: UIImage?
+    var reminderID: String?
     
     init(inputImage: UIImage) {
         self.inputImage = inputImage
         self.reminder = nil
     }
     
-    init(reminder: ReminderItem) {
-        self.reminder = reminder
+    init(reminderID: String) {
+        self.reminderID = reminderID
         self.inputImage = nil
     }
     
     var isNewReminder: Bool {
-        return reminder == nil
+        return reminderID == nil
     }
 }
