@@ -31,10 +31,19 @@ enum VisionMLClassificationError : Error {
     case classificationFailed
 }
 
+struct ClassificationData {
+    let identifier: String
+    let confidence: Double
+}
+
+typealias ClassificationCompletionHandler = (([ClassificationData]) -> Void)
+
 class VisionMLWorker {
     let coreModel : VNCoreMLModel
-    var classificationRequest: VNCoreMLRequest?
-
+    private(set) var classificationRequest: VNCoreMLRequest?
+    var classificationsCount: Int = 1
+    var completionHandler: ClassificationCompletionHandler? = nil
+    
     /// Use the Swift class `MobileNetV2` Core ML generates from the model.
     /// To use a different Core ML classifier model, see
     /// https://developer.apple.com/machine-learning/models/
@@ -68,13 +77,17 @@ class VisionMLWorker {
     /// - Parameter completionHandler: Invoked after classification has completed
     /// - Throws: A type of VisionMLClassificationError
     func getClassifications(for image: UIImage,
-                            completionHandler: ([String]) -> Void) throws {
+                            completionHandler: @escaping ClassificationCompletionHandler) throws {
         
         guard let classificationRequest = self.classificationRequest else {
             Log.debug("Failed to perform classification.")
             throw VisionMLClassificationError.classificationFailed
         }
         
+        // remember completion handler for later
+        self.completionHandler = completionHandler
+        
+        // feed the orientation information since CGImage can't read UIImage orientation
         let imageOrientation = image.imageOrientation.rawValue
         guard let orientation = CGImagePropertyOrientation(rawValue: UInt32(imageOrientation)),
             let ciImage = CIImage(image: image) else {
@@ -96,15 +109,20 @@ class VisionMLWorker {
     }
     
     private func processClassifications(for request: VNRequest, error: Error?) {
-       guard let results = request.results,
-        let classifications = results as? [VNClassificationObservation], !classifications.isEmpty else {
-            Log.error("Unable to classify image.\n\(error?.localizedDescription)")
-            return
+        guard let results = request.results,
+            let classifications = results as? [VNClassificationObservation], !classifications.isEmpty else {
+                Log.error("Unable to classify image.\n\(String(describing: error?.localizedDescription))")
+                return
         }
         
-        let classification = classifications.first
-        print(classification?.identifier)
-        print(classification?.confidence)
+        let firstClassifications = classifications.prefix(classificationsCount)
+        var requestedClassifications = [ClassificationData]()
+        firstClassifications.forEach { (observation) in
+            let data = ClassificationData(identifier: observation.identifier,
+                                          confidence: Double(observation.confidence))
+            requestedClassifications.append(data)
+        }
+        Log.info("Fetched requested classifications: \(requestedClassifications)")
+        completionHandler?(requestedClassifications)
     }
-    
 }

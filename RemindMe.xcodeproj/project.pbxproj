@@ -267,6 +267,7 @@
 		F8632E4A24B59F7E00418BA5 /* Reusables */ = {
 			isa = PBXGroup;
 			children = (
+				F8C6104924B7040200F15E98 /* VisionML */,
 				F8632E6B24B61E9200418BA5 /* PlaceholderStatus */,
 				F8632E4C24B5A00400418BA5 /* Camera */,
 			);
@@ -307,7 +308,6 @@
 				F8632E7724B6222D00418BA5 /* ReminderFormState.swift */,
 				F8632E7924B6224D00418BA5 /* ReminderFormViewModel.swift */,
 				F8632E6724B61DE000418BA5 /* ReminderFormRouter.swift */,
-				F8632E7D24B6470000418BA5 /* VisionMLWorker.swift */,
 				F8632E7B24B634A700418BA5 /* ReminderInputView.swift */,
 			);
 			path = Form;
@@ -339,6 +339,14 @@
 				F8632E8224B6686800418BA5 /* MobileNetV2.mlmodel */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F8C6104924B7040200F15E98 /* VisionML */ = {
+			isa = PBXGroup;
+			children = (
+				F8632E7D24B6470000418BA5 /* VisionMLWorker.swift */,
+			);
+			path = VisionML;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
