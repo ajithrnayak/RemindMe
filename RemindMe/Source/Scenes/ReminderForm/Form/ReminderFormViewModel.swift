@@ -53,6 +53,8 @@ class ReminderFormViewModel {
     var state: ReminderFormState?
     var visionWorker: VisionMLWorker?
     
+    // MARK: - Initializer
+
     init(with state: ReminderFormState?) {
         self.state              = state
         let reminderItem        = state?.reminder
@@ -66,6 +68,8 @@ class ReminderFormViewModel {
         self.notifyEnabled      = Box(reminderItem?.notify ?? true)
     }
     
+    // MARK: - Update Actions
+
     func loadReminderForm() {
         guard let state = state else {
             self.placeholderType.value = .empty
@@ -123,6 +127,11 @@ class ReminderFormViewModel {
         self.taskType.value         = reminderItem.taskType
         self.dueDate.value          = reminderItem.dueDateString
         self.notifyEnabled.value    = reminderItem.notify
+    }
+    
+    func updateReminderTask(_ task: String) {
+        self.state?.reminder?.reminderTask  = task
+        self.reminderTask.value             = task
     }
     
     // MARK: - Helper

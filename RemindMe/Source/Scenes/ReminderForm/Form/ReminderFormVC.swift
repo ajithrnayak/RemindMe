@@ -77,6 +77,7 @@ class ReminderFormVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureNavigationActions()
+        suggestionsVC.delegate = self
         loadForm()
     }
     
@@ -185,6 +186,8 @@ extension ReminderFormVC {
     }
 }
 
+// MARK: - Helpers
+
 extension ReminderFormVC {
     
     func updatePlaceholder(_ placeholderType: ReminderFormPlaceholderType) {
@@ -207,6 +210,12 @@ extension ReminderFormVC {
         self.suggestionsContainerView.isHidden  = isEmpty
         self.reminderInputView.isHidden         = isEmpty
         self.reminderDueDateView.isHidden       = isEmpty
+    }
+}
+
+extension ReminderFormVC: SuggestionsDelegate {
+    func suggestions(_ suggestions: SuggestionsVC, didPick suggestion: String) {
+        viewModel?.updateReminderTask(suggestion)
     }
 }
 
