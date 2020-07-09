@@ -75,6 +75,11 @@ extension RemindersVC {
         super.viewWillAppear(animated)
         remindersList.refreshReminders()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        NotificationsWorker.requestUserPermision { (_) in }
+    }
 }
 
 // MARK: - Initial Configuration
