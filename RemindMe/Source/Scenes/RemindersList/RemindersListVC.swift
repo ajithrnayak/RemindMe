@@ -36,31 +36,52 @@ class RemindersListVC: UITableViewController {
         viewModel.reminders.bind {[weak self] (reminders) in
             self?.tableView.reloadData()
         }
-    }
-    
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.numberOfSections
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRows(in: section)
-    }
-
-    override func tableView(_ tableView: UITableView,
-                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReminderCell", for: indexPath)
-        // Configure the cell...
-        let reminder = viewModel.reminder(at: indexPath)
-        cell.textLabel?.text = reminder?.task
-        cell.detailTextLabel?.text = reminder?.dueDateString
-        cell.textLabel?.textColor = .black
-        cell.backgroundColor = .white
-        return cell
+        
+        viewModel.placeholder.bind {[weak self] (placeholderType) in
+            self?.updatePlaceholder(placeholderType)
+        }
     }
 }
 
+extension RemindersListVC {
+    private func updatePlaceholder(_ placeholderType: RemindersListPlaceholderType) {
+        switch placeholderType {
+        case .empty, .loading, .fetchFailed:
+            if let placeholder = placeholderType.placeholder {
+                tableView.showPlaceholder(placeholder)
+                break
+            }
+            fallthrough
+        case .none:
+            tableView.hidePlaceholder()
+        }
+    }
+}
+
+// MARK: - Table view data source
+
+extension RemindersListVC {
+
+       override func numberOfSections(in tableView: UITableView) -> Int {
+           return viewModel.numberOfSections
+       }
+
+       override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+           return viewModel.numberOfRows(in: section)
+       }
+
+       override func tableView(_ tableView: UITableView,
+                               cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+           let cell = tableView.dequeueReusableCell(withIdentifier: "ReminderCell", for: indexPath)
+           // Configure the cell...
+           let reminder = viewModel.reminder(at: indexPath)
+           cell.textLabel?.text = reminder?.task
+           cell.detailTextLabel?.text = reminder?.dueDateString
+           cell.textLabel?.textColor = .black
+           cell.backgroundColor = .white
+           return cell
+       }
+}
 
 // MARK: - Factory Initializer
 extension RemindersListVC {

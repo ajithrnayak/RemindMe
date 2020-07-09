@@ -68,6 +68,7 @@ extension RemindersVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "RemindMe"
+        view.backgroundColor = .white
     }
     
     override func viewWillAppear(_ animated: Bool) {
