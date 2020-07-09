@@ -44,8 +44,13 @@ class ReminderOptionsView: UIView {
         return $0
     }(UIButton(type: .custom))
     
-    // MARK: - Actions
+    private let topBorderView: UIView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.backgroundColor = .separator
+        return $0
+    }(UIView())
     
+    // MARK: - Actions
     @objc
     func notifyButtonAction() {
         delegate?.reminderOptions(self, didSelectNotify: notifyButton.isSelected)
@@ -91,13 +96,11 @@ class ReminderOptionsView: UIView {
     }
     
     private func setupTopBorder() {
-//         addSubview(bottomBorderView)
-//         let borderConstraints = [bottomBorderView.leadingAnchor.constraint(equalTo: self.leadingAnchor,
-//                                                                            constant: 16.0),
-//                                  bottomBorderView.trailingAnchor.constraint(equalTo: self.trailingAnchor,
-//                                                                             constant: -16.0),
-//                                  bottomBorderView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-//                                  bottomBorderView.heightAnchor.constraint(equalToConstant: 1.0)]
-//         borderConstraints.forEach({ $0.isActive = true })
+         addSubview(topBorderView)
+         let borderConstraints = [topBorderView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+                                  topBorderView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+                                  topBorderView.topAnchor.constraint(equalTo: self.topAnchor),
+                                  topBorderView.heightAnchor.constraint(equalToConstant: 1.0)]
+         borderConstraints.forEach({ $0.isActive = true })
      }
 }
