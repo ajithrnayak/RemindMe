@@ -110,6 +110,10 @@ class CameraVC: UIViewController {
 // MARK: - Handling Image Picker Selection
 extension CameraVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        delegate?.cameraDidRequestCancel()
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
