@@ -13,11 +13,14 @@ import CoreML
 
 enum CoreMLModelFile: String {
     case mobileNetV2 = "MobileNetV2"
+    case resnet50 = "Resnet50"
     
     var model: MLModel {
         switch self {
         case .mobileNetV2:
             return MobileNetV2().model
+        case .resnet50:
+            return Resnet50().model
         }
     }
 }
@@ -93,12 +96,15 @@ class VisionMLWorker {
     }
     
     private func processClassifications(for request: VNRequest, error: Error?) {
-       guard let results = request.results else {
+       guard let results = request.results,
+        let classifications = results as? [VNClassificationObservation], !classifications.isEmpty else {
             Log.error("Unable to classify image.\n\(error?.localizedDescription)")
             return
         }
         
-        print(results)
+        let classification = classifications.first
+        print(classification?.identifier)
+        print(classification?.confidence)
     }
     
 }
