@@ -48,6 +48,7 @@
 		F88ACF2324B7871C00A82BA2 /* DataPersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88ACF2224B7871C00A82BA2 /* DataPersister.swift */; };
 		F88ACF2724B7878C00A82BA2 /* Reminder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88ACF2524B7878C00A82BA2 /* Reminder+CoreDataClass.swift */; };
 		F88ACF2824B7878C00A82BA2 /* Reminder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88ACF2624B7878C00A82BA2 /* Reminder+CoreDataProperties.swift */; };
+		F88ACF2C24B78F6800A82BA2 /* ReminderFormWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88ACF2B24B78F6800A82BA2 /* ReminderFormWorker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		F88ACF2224B7871C00A82BA2 /* DataPersister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersister.swift; sourceTree = "<group>"; };
 		F88ACF2524B7878C00A82BA2 /* Reminder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F88ACF2624B7878C00A82BA2 /* Reminder+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F88ACF2B24B78F6800A82BA2 /* ReminderFormWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderFormWorker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +344,7 @@
 				F8632E6824B61DE000418BA5 /* ReminderFormVC.swift */,
 				F8632E7724B6222D00418BA5 /* ReminderFormState.swift */,
 				F8632E7924B6224D00418BA5 /* ReminderFormViewModel.swift */,
+				F88ACF2B24B78F6800A82BA2 /* ReminderFormWorker.swift */,
 				F813B28224B70B86004B3475 /* TaskType.swift */,
 				F8632E6724B61DE000418BA5 /* ReminderFormRouter.swift */,
 				F813B28924B72104004B3475 /* Views */,
@@ -572,6 +575,7 @@
 				F8632E7224B61E9200418BA5 /* PlaceholderStatus.swift in Sources */,
 				F8632E6924B61DE000418BA5 /* ReminderFormRouter.swift in Sources */,
 				F8632E7C24B634A800418BA5 /* ReminderInputView.swift in Sources */,
+				F88ACF2C24B78F6800A82BA2 /* ReminderFormWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

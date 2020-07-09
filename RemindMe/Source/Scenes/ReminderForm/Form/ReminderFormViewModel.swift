@@ -42,6 +42,13 @@ enum ReminderFormPlaceholderType {
     }
 }
 
+enum ReminderFormStatus {
+    case none
+    case incompleteData
+    case saveFailed
+    case saveSuccess
+}
+
 class ReminderFormViewModel {
     var emojiType: Box<String?>
     var reminderTask: Box<String?>
@@ -49,9 +56,11 @@ class ReminderFormViewModel {
     var notifyEnabled: Box<Bool>
     var taskType: Box<TaskType>
     var placeholderType: Box<ReminderFormPlaceholderType>
+    var status: Box<ReminderFormStatus>
     
     var state: ReminderFormState?
     var visionWorker: VisionMLWorker?
+    lazy var reminderFormWorker = ReminderFormWorker()
     
     // MARK: - Initializer
 
@@ -66,9 +75,10 @@ class ReminderFormViewModel {
         self.taskType           = Box(reminderItem?.taskType ?? .none)
         self.dueDate            = Box(reminderItem?.dueDateString)
         self.notifyEnabled      = Box(reminderItem?.notify ?? true)
+        self.status             = Box(.none)
     }
     
-    // MARK: - Update Actions
+    // MARK: - Load Form
 
     func loadReminderForm() {
         guard let state = state else {
@@ -117,7 +127,9 @@ class ReminderFormViewModel {
             self.placeholderType.value = .failedToProcess
         }
     }
-    
+
+    // MARK: - Update
+
     func showNewReminderItem(_ reminderItem: ReminderItem) {
         // update state and discard image
         self.state?.reminder        = reminderItem
@@ -148,6 +160,26 @@ class ReminderFormViewModel {
     func setNotifyFlag(_ flag: Bool) {
         self.state?.reminder?.notify    = flag
         self.notifyEnabled.value        = flag
+    }
+    
+    // MARK: - Save
+    
+    func saveReminder() {
+        guard let reminderItem = self.state?.reminder,
+            reminderItem.isValid else {
+                Log.info("Update all fields in form")
+                self.status.value = .incompleteData
+                return
+        }
+        
+        do {
+            try reminderFormWorker.saveReminder(reminderItem)
+            self.status.value = .saveSuccess
+        }
+        catch let error as NSError {
+            Log.error("Could not save. \(error), \(error.userInfo)")
+            self.status.value = .saveFailed
+        }
     }
     
     // MARK: - Helper

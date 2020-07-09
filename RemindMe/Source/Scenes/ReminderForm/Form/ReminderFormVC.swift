@@ -135,6 +135,10 @@ class ReminderFormVC: UIViewController {
         viewModel?.notifyEnabled.bind(listener: {[weak self] (notifyOn) in
             self?.reminderOptionsView.setNotifyButtonState(isSelectd: notifyOn)
         })
+        
+        viewModel?.status.bind(listener: { [weak self] (status) in
+            self?.statusHandler(status)
+        })
     }
 
     // MARK: - Actions
@@ -146,8 +150,16 @@ class ReminderFormVC: UIViewController {
     
     @objc
     func saveReminderAction() {
+        viewModel?.saveReminder()
     }
     
+    // MARK: - Status handler
+    private func statusHandler(_ status: ReminderFormStatus) {
+        if status == .saveSuccess {
+            delegate?.reminderFormDidSaveReminder()
+        }
+    }
+
 }
 
 // MARK: - Initial setup

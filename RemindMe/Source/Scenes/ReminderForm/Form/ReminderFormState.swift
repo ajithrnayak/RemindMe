@@ -24,6 +24,19 @@ struct ReminderItem {
         df.dateFormat = "hh:mm E, d MMM y"
         return df
     }()
+    
+    var isValid: Bool {
+        // ensure task is entered
+        guard let reminderTask = reminderTask, !reminderTask.isEmpty else {
+            return false
+        }
+        
+        guard let _ = dueDate, taskType != .none else {
+            return false
+        }
+        
+        return true
+    }
 }
 
 extension ReminderItem {

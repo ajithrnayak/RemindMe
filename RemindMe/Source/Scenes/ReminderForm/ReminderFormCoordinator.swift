@@ -47,6 +47,7 @@ extension ReminderFormCoordinator: CameraDelegate {
 // MARK: - CameraDelegate
 extension ReminderFormCoordinator: ReminderFormDelegate {
     func reminderFormDidSaveReminder() {
+        navigationController?.popToRootViewController(animated: true)
     }
     
     func reminderFormDidRequestCancel() {
