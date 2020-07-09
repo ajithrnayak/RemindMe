@@ -46,6 +46,7 @@ class DateInputFieldView: UIView {
         $0.font                 = UIFont.systemFont(ofSize: 16.0)
         $0.textColor            = .black
         $0.contentVerticalAlignment = .center
+        $0.placeholder          = localized("Enter a due date")
         return $0
     }(UITextField())
     
