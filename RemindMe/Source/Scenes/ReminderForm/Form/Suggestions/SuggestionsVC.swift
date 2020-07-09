@@ -22,6 +22,7 @@ class SuggestionsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
     
     // MARK: - Initial setup
