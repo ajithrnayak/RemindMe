@@ -15,7 +15,7 @@ protocol ReminderFormDelegate: class {
 class ReminderFormVC: UIViewController {
     
     var image: UIImage?
-    var reminder: ReminderItem?
+    var reminderID: String?
     weak var delegate: ReminderFormDelegate?
 
     // MARK: - Properties (private)
@@ -90,16 +90,48 @@ class ReminderFormVC: UIViewController {
         var state: ReminderFormState?
         if let image = image {
             state = ReminderFormState(inputImage: image)
-        } else if let reminder = reminder {
-            state = ReminderFormState(reminder: reminder)
+        }
+        else if let reminderID = reminderID {
+            state = ReminderFormState(reminderID: reminderID)
         }
         // setting title somewhere else behaves strangely so this code smell here
-        //  self.title = state?.isNewReminder ? localized("New reminder") : localized("Edit reminder")
-        self.viewModel = ReminderFormViewModel(with: state)
-        self.viewModel?.loadReminderForm()
+        viewModel = ReminderFormViewModel(with: state)
+        title = viewModel?.reminderFormTitle()
+        // setup bindings
+        renderContent()
+        viewModel?.loadReminderForm()
+    }
+    
+    // MARK: - Binding
+    
+    func renderContent() {
+        viewModel?.placeholderType.bind(listener: { [weak self] (placeholderType) in
+            self?.updatePlaceholder(placeholderType)
+        })
+        
+        viewModel?.taskType.bind(listener: {[weak self] (taskType) in
+            self?.suggestionsVC.taskType = taskType
+        })
+        
+        viewModel?.emojiType.bind(listener: {[weak self] (emoji) in
+            self?.reminderInputView.setEmoji(emoji)
+        })
+        
+        viewModel?.reminderTask.bind(listener: {[weak self] (reminderTask) in
+            self?.reminderInputView.setTextFieldInput(reminderTask)
+        })
+        
+        viewModel?.dueDate.bind(listener: {[weak self] (dueDate) in
+            self?.reminderDueDateView.setDateFieldInput(dueDate)
+        })
+        
+        viewModel?.notifyEnabled.bind(listener: {[weak self] (notifyOn) in
+            self?.reminderOptionsView.notifyButton.isSelected = notifyOn
+        })
     }
 
     // MARK: - Actions
+    
     @objc
     func cancelReminderFormAction() {
         delegate?.reminderFormDidRequestCancel()
@@ -150,6 +182,31 @@ extension ReminderFormVC {
     private func configureNavigationActions() {
         navigationItem.leftBarButtonItem = backBarButtonItem
         navigationItem.rightBarButtonItem = doneBarButtonItem
+    }
+}
+
+extension ReminderFormVC {
+    
+    func updatePlaceholder(_ placeholderType: ReminderFormPlaceholderType) {
+        if placeholderType == .empty {
+            showEmptyScreen(true)
+            return
+        }
+        
+        guard let placeholder = placeholderType.placeholder,
+            placeholderType != .none else {
+                showEmptyScreen(false)
+                self.hidePlaceholder()
+                return
+        }
+        
+        self.showPlaceholder(placeholder)
+    }
+    
+    func showEmptyScreen(_ isEmpty: Bool) {
+        self.suggestionsContainerView.isHidden  = isEmpty
+        self.reminderInputView.isHidden         = isEmpty
+        self.reminderDueDateView.isHidden       = isEmpty
     }
 }
 
