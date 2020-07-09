@@ -175,6 +175,7 @@ class ReminderFormViewModel {
         do {
             try reminderFormWorker.saveReminder(reminderItem)
             self.status.value = .saveSuccess
+            Log.info("Reminder saved!")
         }
         catch let error as NSError {
             Log.error("Could not save. \(error), \(error.userInfo)")
