@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F813B28324B70B86004B3475 /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813B28224B70B86004B3475 /* TaskType.swift */; };
 		F8632DFB24B575E300418BA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632DFA24B575E300418BA5 /* AppDelegate.swift */; };
 		F8632DFD24B575E300418BA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632DFC24B575E300418BA5 /* SceneDelegate.swift */; };
 		F8632E0524B575E300418BA5 /* RemindMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8632E0324B575E300418BA5 /* RemindMe.xcdatamodeld */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F813B28224B70B86004B3475 /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
 		F8632DF724B575E300418BA5 /* RemindMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemindMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8632DFA24B575E300418BA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8632DFC24B575E300418BA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				F8632E6824B61DE000418BA5 /* ReminderFormVC.swift */,
 				F8632E7724B6222D00418BA5 /* ReminderFormState.swift */,
 				F8632E7924B6224D00418BA5 /* ReminderFormViewModel.swift */,
+				F813B28224B70B86004B3475 /* TaskType.swift */,
 				F8632E6724B61DE000418BA5 /* ReminderFormRouter.swift */,
 				F8632E7B24B634A700418BA5 /* ReminderInputView.swift */,
 			);
@@ -501,6 +504,7 @@
 				F8632E7124B61E9200418BA5 /* UIViewController+PlaceholderStatus.swift in Sources */,
 				F8632E4924B5985E00418BA5 /* RemindersRouter.swift in Sources */,
 				F8632E7E24B6470000418BA5 /* VisionMLWorker.swift in Sources */,
+				F813B28324B70B86004B3475 /* TaskType.swift in Sources */,
 				F8632E4724B5981300418BA5 /* CameraVC.swift in Sources */,
 				F8632E4224B591F000418BA5 /* UIView+Layer.swift in Sources */,
 				F8632E4024B591D500418BA5 /* UIView+NSLayoutConstraint.swift in Sources */,
