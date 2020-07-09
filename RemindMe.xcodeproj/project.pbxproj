@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F813B28324B70B86004B3475 /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813B28224B70B86004B3475 /* TaskType.swift */; };
+		F813B28624B70C29004B3475 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813B28524B70C29004B3475 /* Box.swift */; };
+		F813B28824B70E88004B3475 /* SuggestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813B28724B70E88004B3475 /* SuggestionsViewModel.swift */; };
 		F8632DFB24B575E300418BA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632DFA24B575E300418BA5 /* AppDelegate.swift */; };
 		F8632DFD24B575E300418BA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632DFC24B575E300418BA5 /* SceneDelegate.swift */; };
 		F8632E0524B575E300418BA5 /* RemindMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8632E0324B575E300418BA5 /* RemindMe.xcdatamodeld */; };
@@ -62,6 +64,8 @@
 
 /* Begin PBXFileReference section */
 		F813B28224B70B86004B3475 /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
+		F813B28524B70C29004B3475 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		F813B28724B70E88004B3475 /* SuggestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsViewModel.swift; sourceTree = "<group>"; };
 		F8632DF724B575E300418BA5 /* RemindMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemindMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8632DFA24B575E300418BA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8632DFC24B575E300418BA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +133,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F813B28424B70C1C004B3475 /* Boxing */ = {
+			isa = PBXGroup;
+			children = (
+				F813B28524B70C29004B3475 /* Box.swift */,
+			);
+			path = Boxing;
+			sourceTree = "<group>";
+		};
 		F8632DEE24B575E300418BA5 = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +281,7 @@
 		F8632E4A24B59F7E00418BA5 /* Reusables */ = {
 			isa = PBXGroup;
 			children = (
+				F813B28424B70C1C004B3475 /* Boxing */,
 				F8C6104924B7040200F15E98 /* VisionML */,
 				F8632E6B24B61E9200418BA5 /* PlaceholderStatus */,
 				F8632E4C24B5A00400418BA5 /* Camera */,
@@ -331,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				F8632E7524B61F9C00418BA5 /* SuggestionsVC.swift */,
+				F813B28724B70E88004B3475 /* SuggestionsViewModel.swift */,
 			);
 			path = Suggestions;
 			sourceTree = "<group>";
@@ -495,6 +509,7 @@
 				F8632E8724B67CB400418BA5 /* Resnet50.mlmodel in Sources */,
 				F8632DFD24B575E300418BA5 /* SceneDelegate.swift in Sources */,
 				F8632E5124B5D46800418BA5 /* LitenLogger.swift in Sources */,
+				F813B28624B70C29004B3475 /* Box.swift in Sources */,
 				F8632E6324B60F7500418BA5 /* ReminderFormCoordinator.swift in Sources */,
 				F8632E4E24B5A03500418BA5 /* CameraProvider.swift in Sources */,
 				F8632E8324B6686800418BA5 /* MobileNetV2.mlmodel in Sources */,
@@ -509,6 +524,7 @@
 				F8632E4224B591F000418BA5 /* UIView+Layer.swift in Sources */,
 				F8632E4024B591D500418BA5 /* UIView+NSLayoutConstraint.swift in Sources */,
 				F8632E7324B61E9200418BA5 /* Placeholder.swift in Sources */,
+				F813B28824B70E88004B3475 /* SuggestionsViewModel.swift in Sources */,
 				F8632E7224B61E9200418BA5 /* PlaceholderStatus.swift in Sources */,
 				F8632E6924B61DE000418BA5 /* ReminderFormRouter.swift in Sources */,
 				F8632E7C24B634A800418BA5 /* ReminderInputView.swift in Sources */,
