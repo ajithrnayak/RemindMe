@@ -11,10 +11,10 @@ import UIKit
 class RemindersListVC: UITableViewController {
 
     func refreshReminders() {
-        
+        viewModel.loadReminders()
     }
     
-    private var viewModel: RemindersListViewModel?
+    private let viewModel = RemindersListViewModel()
 
     // MARK: - View Life Cycle
 
@@ -27,36 +27,38 @@ class RemindersListVC: UITableViewController {
 
     // MARK: - Load Reminders
     func loadReminders() {
-        self.viewModel = RemindersListViewModel()
         setupRenderUI()
-        viewModel?.loadReminders()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ReminderCell")
     }
     
     // MARK: - Binding
     func setupRenderUI() {
-        
+        viewModel.reminders.bind {[weak self] (reminders) in
+            self?.tableView.reloadData()
+        }
     }
     
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return viewModel.numberOfSections
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModel.numberOfRows(in: section)
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReminderCell", for: indexPath)
         // Configure the cell...
-
+        let reminder = viewModel.reminder(at: indexPath)
+        cell.textLabel?.text = reminder?.task
+        cell.detailTextLabel?.text = reminder?.dueDateString
+        cell.textLabel?.textColor = .black
+        cell.backgroundColor = .white
         return cell
     }
-    */
-
 }
 
 

@@ -14,6 +14,16 @@ struct ReminderListItem {
     let task: String
     let dueDate: Date
     let isCompleted: Bool
+    
+    var dueDateString: String? {
+        return formatter.string(from: dueDate)
+    }
+    
+    private let formatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateFormat = "hh:mm E, d MMM y"
+        return df
+    }()
 }
 
 enum RemindersListPlaceholderType {
@@ -58,6 +68,47 @@ class RemindersListViewModel {
     }
     
     func loadReminders() {
-       let allReminders = worker.fetchReminders()
+        let allReminders = worker.fetchReminders()
+        if allReminders.isEmpty {
+            self.placeholder.value = .empty
+        }
+        let overdueReminders        = worker.filterOverdueReminders(from: allReminders)
+        self.overdueReminders.value = overdueReminders
+        self.reminders.value        = allReminders
+    }
+    
+    // MARK: - data source
+    var numberOfSections: Int {
+        if reminders.value.isEmpty {
+            return 0
+        }
+        else if overdueReminders.value.isEmpty {
+            return 1
+        }
+        else {
+            return 2
+        }
+    }
+    
+    func numberOfRows(in section: Int) -> Int {
+        switch section {
+        case 0:
+            return numberOfSections == 2 ? overdueReminders.value.count : reminders.value.count
+        case 1:
+            return reminders.value.count
+        default:
+            return 0
+        }
+    }
+    
+    func reminder(at indexpath: IndexPath) -> ReminderListItem? {
+        switch indexpath.section {
+        case 0:
+            return numberOfSections == 2 ? overdueReminders.value[indexpath.row] : reminders.value[indexpath.row]
+        case 1:
+            return reminders.value[indexpath.row]
+        default:
+            return nil
+        }
     }
 }

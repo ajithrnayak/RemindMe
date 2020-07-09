@@ -69,6 +69,11 @@ extension RemindersVC {
         super.viewDidLoad()
         title = "RemindMe"
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        remindersList.refreshReminders()
+    }
 }
 
 // MARK: - Initial Configuration
@@ -77,7 +82,11 @@ extension RemindersVC {
     
     private func setupRemindersList() {
         view.addSubview(containerView)
-        containerView.addConstraintsToMatch(superView: view)
+        let constraints = [containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                           containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                           containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                           containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)]
+        constraints.forEach { $0.isActive = true }
         
         containerView.addSubview(remindersList.view)
         remindersList.view.addConstraintsToMatch(superView: containerView)
