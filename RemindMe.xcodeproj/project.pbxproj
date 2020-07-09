@@ -39,6 +39,7 @@
 		F8632E7C24B634A800418BA5 /* ReminderInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E7B24B634A700418BA5 /* ReminderInputView.swift */; };
 		F8632E7E24B6470000418BA5 /* VisionMLWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8632E7D24B6470000418BA5 /* VisionMLWorker.swift */; };
 		F8632E8324B6686800418BA5 /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F8632E8224B6686800418BA5 /* MobileNetV2.mlmodel */; };
+		F8632E8724B67CB400418BA5 /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F8632E8624B67CB400418BA5 /* Resnet50.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		F8632E7B24B634A700418BA5 /* ReminderInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderInputView.swift; sourceTree = "<group>"; };
 		F8632E7D24B6470000418BA5 /* VisionMLWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionMLWorker.swift; sourceTree = "<group>"; };
 		F8632E8224B6686800418BA5 /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
+		F8632E8624B67CB400418BA5 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +335,7 @@
 		F8632E7F24B6499D00418BA5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F8632E8624B67CB400418BA5 /* Resnet50.mlmodel */,
 				F8632E8224B6686800418BA5 /* MobileNetV2.mlmodel */,
 			);
 			path = Resources;
@@ -478,6 +481,7 @@
 				F8632E7624B61F9C00418BA5 /* SuggestionsVC.swift in Sources */,
 				F8632E4524B596AD00418BA5 /* AppIcons.swift in Sources */,
 				F8632E0524B575E300418BA5 /* RemindMe.xcdatamodeld in Sources */,
+				F8632E8724B67CB400418BA5 /* Resnet50.mlmodel in Sources */,
 				F8632DFD24B575E300418BA5 /* SceneDelegate.swift in Sources */,
 				F8632E5124B5D46800418BA5 /* LitenLogger.swift in Sources */,
 				F8632E6324B60F7500418BA5 /* ReminderFormCoordinator.swift in Sources */,
