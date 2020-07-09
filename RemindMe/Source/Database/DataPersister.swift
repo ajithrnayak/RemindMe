@@ -58,4 +58,25 @@ class DataPersister {
         }
     }
 
+
+    // MARK: - Fetch
+    func fetchObjects<T: NSManagedObject>(entity: T.Type,
+                                          predicate: NSPredicate? = nil,
+                                          sortDescriptors: [NSSortDescriptor]? = nil,
+                                          context: NSManagedObjectContext) -> [T] {
+        
+        let request = NSFetchRequest<T>(entityName: String(describing: entity))
+        request.predicate = predicate
+        request.sortDescriptors = sortDescriptors
+        request.fetchBatchSize = defaultFetchBatchSize
+        
+        do {
+            return try context.fetch(request)
+        }
+        catch let error as NSError {
+            Log.error(String(describing: error.localizedFailureReason))
+            return [T]()
+        }
+    }
+
 }
