@@ -15,7 +15,7 @@ protocol ReminderFormDelegate: class {
 class ReminderFormVC: UIViewController {
     
     var image: UIImage?
-    var reminder: Reminder?
+    var reminder: ReminderItem?
     weak var delegate: ReminderFormDelegate?
 
     // MARK: - Properties (private)
@@ -36,6 +36,11 @@ class ReminderFormVC: UIViewController {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(ReminderInputView())
+    
+    private let reminderDueDateView: DateInputFieldView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(DateInputFieldView())
     
     private let suggestionsVC = SuggestionsVC.newInstance()
     
@@ -63,6 +68,7 @@ class ReminderFormVC: UIViewController {
     override func loadView() {
         super.loadView()
         setupInputView()
+        setupDueDateView()
         setupSuggestionsView()
     }
     
@@ -112,13 +118,22 @@ extension ReminderFormVC {
         let constraints = [reminderInputView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
                            reminderInputView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                            reminderInputView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                           reminderInputView.heightAnchor.constraint(equalToConstant: 80.0)]
+                           reminderInputView.heightAnchor.constraint(equalToConstant: 60.0)]
+        constraints.forEach { $0.isActive = true }
+    }
+    
+    private func setupDueDateView() {
+        view.addSubview(reminderDueDateView)
+        let constraints = [reminderDueDateView.topAnchor.constraint(equalTo: reminderInputView.bottomAnchor),
+                           reminderDueDateView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                           reminderDueDateView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                           reminderDueDateView.heightAnchor.constraint(equalToConstant: 60.0)]
         constraints.forEach { $0.isActive = true }
     }
     
     private func setupSuggestionsView() {
         view.addSubview(suggestionsContainerView)
-        let containerConstraints = [suggestionsContainerView.topAnchor.constraint(equalTo: reminderInputView.bottomAnchor,
+        let containerConstraints = [suggestionsContainerView.topAnchor.constraint(equalTo: reminderDueDateView.bottomAnchor,
                                                                                   constant: 16.0),
                                     suggestionsContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                                     suggestionsContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),

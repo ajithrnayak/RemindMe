@@ -48,7 +48,7 @@ class ReminderFormViewModel {
     var placeholderType: ReminderFormPlaceholderType = .none
     var title: String?
     
-    let state: ReminderFormState?
+    var state: ReminderFormState?
     var visionWorker: VisionMLWorker?
     
     init(with state: ReminderFormState?) {
@@ -80,10 +80,36 @@ class ReminderFormViewModel {
         self.visionWorker?.setupClassificationRequest()
         do {
             try self.visionWorker?.getClassifications(for: image, completionHandler: { (results) in
-                // do ya thing
+                DispatchQueue.main.async { [weak self] in
+                    guard let result = results.first,
+                        let reminderItem = ReminderItem(identifier: result.identifier) else {
+                            // tell them to try again
+                            self?.placeholderType = .unknownObjectType
+                            return
+                    }
+                    self?.showNewReminderItem(reminderItem)
+                }
             })
-        } catch {
+        }
+        catch {
             self.placeholderType = .failedToProcess
         }
+    }
+    
+    func showNewReminderItem(_ reminderItem: ReminderItem) {
+        // update state and discard image
+        self.state = ReminderFormState(reminder: reminderItem)
+        // update view model properties
+        self.placeholderType = .none
+        self.emojiType = reminderItem.taskType.emoji
+        self.reminderTask = reminderItem.reminderTask
+        self.taskType   = reminderItem.taskType
+        self.title = reminderFormTitle(isNewReminder: true)
+    }
+    
+    // MARK: - Helper
+
+    private func reminderFormTitle(isNewReminder: Bool) -> String {
+        return isNewReminder ? localized("New reminder") : localized("Edit reminder")
     }
 }

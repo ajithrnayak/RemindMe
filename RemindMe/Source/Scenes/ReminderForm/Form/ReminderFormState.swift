@@ -9,15 +9,30 @@
 import Foundation
 import UIKit
 
-struct Reminder {
-    var taskType: TaskType
-    var reminderTask: String
+struct ReminderItem {
+    let taskType: TaskType
+    var reminderTask: String?
     var dueDate: Date
     var notify: Bool
+    let reminderID: String
+}
+
+extension ReminderItem {
+    init?(identifier: String) {
+        guard let taskType = TaskType(objectIdentifier: identifier) else {
+            return nil
+        }
+        let newReminderID = UUID().uuidString
+        self.reminderID = newReminderID
+        self.taskType   = taskType
+        self.reminderTask = nil
+        self.dueDate    = Date()
+        self.notify     = true
+    }
 }
 
 struct ReminderFormState {
-    var reminder: Reminder?
+    var reminder: ReminderItem?
     var inputImage: UIImage?
     
     init(inputImage: UIImage) {
@@ -25,7 +40,7 @@ struct ReminderFormState {
         self.reminder = nil
     }
     
-    init(reminder: Reminder) {
+    init(reminder: ReminderItem) {
         self.reminder = reminder
         self.inputImage = nil
     }
