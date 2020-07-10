@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        customizeAppearance()
         return true
     }
 
@@ -31,3 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension AppDelegate {
+    func customizeAppearance() {
+        let navAppearance = UINavigationBar.appearance()
+        navAppearance.barTintColor   = .white
+        navAppearance.tintColor      = .black
+        navAppearance.titleTextAttributes       = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        navAppearance.largeTitleTextAttributes  = [NSAttributedString.Key.foregroundColor: UIColor.black]
+    }
+}
