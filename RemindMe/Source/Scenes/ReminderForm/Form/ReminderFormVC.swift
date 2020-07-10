@@ -86,13 +86,9 @@ class ReminderFormVC: UIViewController {
         
         loadForm()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        reminderInputView.makeTextfieldActive(true)
-    }
-    
+
     // MARK: - Load Form
+
     private func loadForm() {
         var state: ReminderFormState?
         if let image = image {
@@ -118,6 +114,8 @@ class ReminderFormVC: UIViewController {
         
         viewModel?.taskType.bind(listener: {[weak self] (taskType) in
             self?.suggestionsVC.taskType = taskType
+            let showkeyboard = self?.viewModel?.showKeyboard ?? false
+            self?.reminderInputView.makeTextfieldActive(showkeyboard)
         })
         
         viewModel?.emojiType.bind(listener: {[weak self] (emoji) in

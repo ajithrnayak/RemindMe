@@ -58,6 +58,10 @@ class ReminderFormViewModel {
     var placeholderType: Box<ReminderFormPlaceholderType>
     var status: Box<ReminderFormStatus>
     
+    var showKeyboard: Bool {
+        return taskType.value != .none
+    }
+    
     var state: ReminderFormState?
     var visionWorker: VisionMLWorker?
     lazy var reminderFormWorker = ReminderFormWorker()
