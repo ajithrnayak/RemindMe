@@ -107,7 +107,10 @@ extension RemindersVC {
                            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)]
         constraints.forEach { $0.isActive = true }
         
+        addChild(remindersList)
+        remindersList.view.frame = containerView.frame
         containerView.addSubview(remindersList.view)
+        remindersList.didMove(toParent: self)
         remindersList.view.addConstraintsToMatch(superView: containerView)
     }
     
