@@ -34,11 +34,6 @@ class CameraVC: UIViewController {
         return $0
     }(UIButton(type: .custom))
     
-    private let backBarButtonItem = UIBarButtonItem(title: localized("Cancel"),
-                                                    style: .plain,
-                                                    target: self,
-                                                    action: #selector(cancelCameraAction))
-    
     let photoPicker = UIImagePickerController()
     
     // MARK: - View Life cycle
@@ -51,7 +46,7 @@ class CameraVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.setLeftBarButton(backBarButtonItem, animated: true)
+        navigationItem.hidesBackButton = true
     }
     
     // MARK: - Initial Setup
