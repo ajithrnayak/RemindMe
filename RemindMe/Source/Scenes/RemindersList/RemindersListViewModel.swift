@@ -58,6 +58,7 @@ class RemindersListViewModel {
     var overdueReminders: Box<[ReminderListItem]>
     var reminders: Box<[ReminderListItem]>
     var placeholder: Box<RemindersListPlaceholderType>
+    var allReminders: [ReminderListItem]?
     
     let worker = RemindersListWorker()
     
@@ -69,17 +70,21 @@ class RemindersListViewModel {
     
     func loadReminders() {
         let allReminders = worker.fetchReminders()
-        
+        self.allReminders = allReminders
+        presentReminders(allReminders)
+    }
+    
+    func presentReminders(_ reminders: [ReminderListItem]) {
         // hide/show placeholder
-        if allReminders.isEmpty {
+        if reminders.isEmpty {
             self.placeholder.value = .empty
         }
         else {
             self.placeholder.value = .none
         }
-        let overdueReminders        = worker.filterOverdueReminders(from: allReminders)
+        let overdueReminders        = worker.filterOverdueReminders(from: reminders)
         self.overdueReminders.value = overdueReminders
-        self.reminders.value        = allReminders
+        self.reminders.value        = reminders
     }
     
     // MARK: - data source
@@ -142,4 +147,21 @@ class RemindersListViewModel {
         worker.removeNotification(for: reminderID)
     }
 
+    func searchReminder(for searchString: String?) {
+        guard let searchString = searchString, !searchString.isEmpty else {
+            // reset data source
+            presentReminders(self.allReminders ?? [])
+            return
+        }
+        
+        guard !self.reminders.value.isEmpty else {
+            return
+        }
+        
+        let searchResults = self.reminders.value.filter { (reminder) -> Bool in
+            return reminder.task.localizedCaseInsensitiveContains(searchString)
+        }
+        
+        presentReminders(searchResults)
+    }
 }

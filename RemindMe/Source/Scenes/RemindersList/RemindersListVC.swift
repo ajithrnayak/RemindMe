@@ -14,6 +14,10 @@ class RemindersListVC: UITableViewController {
         viewModel.loadReminders()
     }
     
+    func searchReminder(for searchString: String?) {
+        viewModel.searchReminder(for: searchString)
+    }
+    
     private let viewModel = RemindersListViewModel()
 
     // MARK: - View Life Cycle

@@ -34,7 +34,9 @@ class RemindersVC: UIViewController {
     lazy var searchController: UISearchController = ({
         let controller = UISearchController(searchResultsController: nil)
         controller.hidesNavigationBarDuringPresentation = true
+        controller.searchResultsUpdater = self
         controller.searchBar.searchBarStyle = .minimal
+        controller.obscuresBackgroundDuringPresentation = false
         controller.definesPresentationContext = true
         return controller
     })()
@@ -123,6 +125,12 @@ extension RemindersVC {
                            createReminderButton.heightAnchor.constraint(equalToConstant: 60.0),
                            createReminderButton.widthAnchor.constraint(equalToConstant: 60.0)]
         constraints.forEach { $0.isActive = true }
+    }
+}
+
+extension RemindersVC: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        remindersList.searchReminder(for: searchController.searchBar.text)
     }
 }
 
