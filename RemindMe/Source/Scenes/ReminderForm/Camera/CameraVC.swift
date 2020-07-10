@@ -59,7 +59,10 @@ class CameraVC: UIViewController {
         photoPicker.delegate    = self
         photoPicker.sourceType  = UIImagePickerController.isSourceTypeAvailable(.camera) ? .camera : .photoLibrary
         photoPicker.view.translatesAutoresizingMaskIntoConstraints = false
+        addChild(photoPicker)
+        photoPicker.view.frame = cameraFeedView.frame
         cameraFeedView.addSubview(photoPicker.view)
+        photoPicker.didMove(toParent: self)
         photoPicker.view.addConstraintsToMatch(superView: cameraFeedView)
     }
     
