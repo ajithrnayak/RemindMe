@@ -58,5 +58,10 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>To scan ojects for smart detect feature</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Nunito-Bold.ttf</string>
+		<string>Nunito-Regular.ttf</string>
+	</array>
 </dict>
 </plist>
