@@ -52,6 +52,14 @@
 		F88ACF3224B7980900A82BA2 /* RemindersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88ACF3124B7980900A82BA2 /* RemindersListViewModel.swift */; };
 		F88ACF3424B7A04B00A82BA2 /* RemindersListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88ACF3324B7A04B00A82BA2 /* RemindersListWorker.swift */; };
 		F88ACF3724B7BA5900A82BA2 /* NotificationsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88ACF3624B7BA5900A82BA2 /* NotificationsWorker.swift */; };
+		F88ACF3924B7CB9800A82BA2 /* ReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88ACF3824B7CB9800A82BA2 /* ReminderCell.swift */; };
+		F88ACF3C24B7D30800A82BA2 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88ACF3A24B7D30800A82BA2 /* AppTheme.swift */; };
+		F88ACF3D24B7D30800A82BA2 /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88ACF3B24B7D30800A82BA2 /* AppFonts.swift */; };
+		F88ACF3F24B7D35F00A82BA2 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88ACF3E24B7D35F00A82BA2 /* UIColor+Hex.swift */; };
+		F88ACF4524B7D3E400A82BA2 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F88ACF4224B7D3E400A82BA2 /* Nunito-Regular.ttf */; };
+		F88ACF4624B7D3E400A82BA2 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F88ACF4324B7D3E400A82BA2 /* Nunito-Bold.ttf */; };
+		F88ACF4724B7D3E400A82BA2 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = F88ACF4424B7D3E400A82BA2 /* OFL.txt */; };
+		F88ACF4A24B7F1EE00A82BA2 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88ACF4924B7F1EE00A82BA2 /* SectionHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +132,14 @@
 		F88ACF3124B7980900A82BA2 /* RemindersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListViewModel.swift; sourceTree = "<group>"; };
 		F88ACF3324B7A04B00A82BA2 /* RemindersListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListWorker.swift; sourceTree = "<group>"; };
 		F88ACF3624B7BA5900A82BA2 /* NotificationsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsWorker.swift; sourceTree = "<group>"; };
+		F88ACF3824B7CB9800A82BA2 /* ReminderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCell.swift; sourceTree = "<group>"; };
+		F88ACF3A24B7D30800A82BA2 /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		F88ACF3B24B7D30800A82BA2 /* AppFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
+		F88ACF3E24B7D35F00A82BA2 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		F88ACF4224B7D3E400A82BA2 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		F88ACF4324B7D3E400A82BA2 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		F88ACF4424B7D3E400A82BA2 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		F88ACF4924B7F1EE00A82BA2 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +303,7 @@
 				F8632E3A24B5854800418BA5 /* RemindersListVC.swift */,
 				F88ACF3124B7980900A82BA2 /* RemindersListViewModel.swift */,
 				F88ACF3324B7A04B00A82BA2 /* RemindersListWorker.swift */,
+				F88ACF3824B7CB9800A82BA2 /* ReminderCell.swift */,
 			);
 			path = RemindersList;
 			sourceTree = "<group>";
@@ -294,6 +311,7 @@
 		F8632E3E24B591D500418BA5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F88ACF3E24B7D35F00A82BA2 /* UIColor+Hex.swift */,
 				F8632E3F24B591D500418BA5 /* UIView+NSLayoutConstraint.swift */,
 				F8632E4124B591F000418BA5 /* UIView+Layer.swift */,
 			);
@@ -303,6 +321,8 @@
 		F8632E4324B5968F00418BA5 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				F88ACF3B24B7D30800A82BA2 /* AppFonts.swift */,
+				F88ACF3A24B7D30800A82BA2 /* AppTheme.swift */,
 				F8632E4424B596AD00418BA5 /* AppIcons.swift */,
 			);
 			path = Styles;
@@ -311,6 +331,7 @@
 		F8632E4A24B59F7E00418BA5 /* Reusables */ = {
 			isa = PBXGroup;
 			children = (
+				F88ACF4824B7F1C000A82BA2 /* TableSectionHeader */,
 				F88ACF3524B7BA0900A82BA2 /* Notifications */,
 				F813B28424B70C1C004B3475 /* Boxing */,
 				F8C6104924B7040200F15E98 /* VisionML */,
@@ -384,6 +405,7 @@
 		F8632E7F24B6499D00418BA5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F88ACF4024B7D3E400A82BA2 /* Fonts */,
 				F8632E8624B67CB400418BA5 /* Resnet50.mlmodel */,
 				F8632E8224B6686800418BA5 /* MobileNetV2.mlmodel */,
 			);
@@ -415,6 +437,32 @@
 				F88ACF3624B7BA5900A82BA2 /* NotificationsWorker.swift */,
 			);
 			path = Notifications;
+			sourceTree = "<group>";
+		};
+		F88ACF4024B7D3E400A82BA2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F88ACF4124B7D3E400A82BA2 /* Nunito */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F88ACF4124B7D3E400A82BA2 /* Nunito */ = {
+			isa = PBXGroup;
+			children = (
+				F88ACF4224B7D3E400A82BA2 /* Nunito-Regular.ttf */,
+				F88ACF4324B7D3E400A82BA2 /* Nunito-Bold.ttf */,
+				F88ACF4424B7D3E400A82BA2 /* OFL.txt */,
+			);
+			path = Nunito;
+			sourceTree = "<group>";
+		};
+		F88ACF4824B7F1C000A82BA2 /* TableSectionHeader */ = {
+			isa = PBXGroup;
+			children = (
+				F88ACF4924B7F1EE00A82BA2 /* SectionHeaderView.swift */,
+			);
+			path = TableSectionHeader;
 			sourceTree = "<group>";
 		};
 		F8C6104924B7040200F15E98 /* VisionML */ = {
@@ -529,7 +577,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F88ACF4724B7D3E400A82BA2 /* OFL.txt in Resources */,
+				F88ACF4524B7D3E400A82BA2 /* Nunito-Regular.ttf in Resources */,
 				F8632E0A24B575E300418BA5 /* LaunchScreen.storyboard in Resources */,
+				F88ACF4624B7D3E400A82BA2 /* Nunito-Bold.ttf in Resources */,
 				F8632E0724B575E300418BA5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -564,6 +615,7 @@
 				F8632E7A24B6224D00418BA5 /* ReminderFormViewModel.swift in Sources */,
 				F8632E3524B5830900418BA5 /* NavigationController.swift in Sources */,
 				F88ACF2324B7871C00A82BA2 /* DataPersister.swift in Sources */,
+				F88ACF4A24B7F1EE00A82BA2 /* SectionHeaderView.swift in Sources */,
 				F8632E7624B61F9C00418BA5 /* SuggestionsVC.swift in Sources */,
 				F8632E4524B596AD00418BA5 /* AppIcons.swift in Sources */,
 				F88ACF2824B7878C00A82BA2 /* Reminder+CoreDataProperties.swift in Sources */,
@@ -571,6 +623,7 @@
 				F8632E0524B575E300418BA5 /* RemindMe.xcdatamodeld in Sources */,
 				F8632E8724B67CB400418BA5 /* Resnet50.mlmodel in Sources */,
 				F8632DFD24B575E300418BA5 /* SceneDelegate.swift in Sources */,
+				F88ACF3D24B7D30800A82BA2 /* AppFonts.swift in Sources */,
 				F88ACF2024B736D500A82BA2 /* DateInputFieldView.swift in Sources */,
 				F8632E5124B5D46800418BA5 /* LitenLogger.swift in Sources */,
 				F813B28624B70C29004B3475 /* Box.swift in Sources */,
@@ -584,13 +637,16 @@
 				F8632E6A24B61DE000418BA5 /* ReminderFormVC.swift in Sources */,
 				F8632E7124B61E9200418BA5 /* UIViewController+PlaceholderStatus.swift in Sources */,
 				F8632E4924B5985E00418BA5 /* RemindersRouter.swift in Sources */,
+				F88ACF3C24B7D30800A82BA2 /* AppTheme.swift in Sources */,
 				F8632E7E24B6470000418BA5 /* VisionMLWorker.swift in Sources */,
 				F813B28324B70B86004B3475 /* TaskType.swift in Sources */,
+				F88ACF3924B7CB9800A82BA2 /* ReminderCell.swift in Sources */,
 				F8632E4724B5981300418BA5 /* CameraVC.swift in Sources */,
 				F8632E4224B591F000418BA5 /* UIView+Layer.swift in Sources */,
 				F8632E4024B591D500418BA5 /* UIView+NSLayoutConstraint.swift in Sources */,
 				F88ACF3224B7980900A82BA2 /* RemindersListViewModel.swift in Sources */,
 				F8632E7324B61E9200418BA5 /* Placeholder.swift in Sources */,
+				F88ACF3F24B7D35F00A82BA2 /* UIColor+Hex.swift in Sources */,
 				F813B28824B70E88004B3475 /* SuggestionsViewModel.swift in Sources */,
 				F8632E7224B61E9200418BA5 /* PlaceholderStatus.swift in Sources */,
 				F8632E6924B61DE000418BA5 /* ReminderFormRouter.swift in Sources */,

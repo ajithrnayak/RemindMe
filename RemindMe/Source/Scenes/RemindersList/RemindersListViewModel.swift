@@ -69,8 +69,13 @@ class RemindersListViewModel {
     
     func loadReminders() {
         let allReminders = worker.fetchReminders()
+        
+        // hide/show placeholder
         if allReminders.isEmpty {
             self.placeholder.value = .empty
+        }
+        else {
+            self.placeholder.value = .none
         }
         let overdueReminders        = worker.filterOverdueReminders(from: allReminders)
         self.overdueReminders.value = overdueReminders
@@ -101,6 +106,17 @@ class RemindersListViewModel {
         }
     }
     
+    func sectionTitle(for section: Int) -> String {
+        switch section {
+        case 0:
+            return numberOfSections == 2 ? "Overdue" : "All"
+        case 1:
+            return "All"
+        default:
+            return ""
+        }
+    }
+    
     func reminder(at indexpath: IndexPath) -> ReminderListItem? {
         switch indexpath.section {
         case 0:
@@ -111,4 +127,19 @@ class RemindersListViewModel {
             return nil
         }
     }
+    
+    // MARK: - Update
+    func completeReminder(with reminderID: String) {
+        do {
+            try worker.completeReminder(with: reminderID)
+            loadReminders()
+            Log.verbose("Updated reminder with ID: \(reminderID)")
+        }
+        catch {
+            Log.error("Failed to update reminder")
+        }
+        // remove notification even if core data save failed
+        worker.removeNotification(for: reminderID)
+    }
+
 }

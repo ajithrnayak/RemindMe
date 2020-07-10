@@ -47,4 +47,30 @@ class RemindersListWorker {
         let currentDate = Date()
         return reminders.filter { $0.dueDate < currentDate }
     }
+    
+    // MARK: - Update
+    func completeReminder(with reminderID: String) throws {
+        let selectedReminder = getReminder(with: reminderID)
+        selectedReminder?.completed = true
+        let dataPersister = DataPersister.shared
+        let managedContext = dataPersister.mainContext
+        try managedContext.save()
+    }
+    
+    func getReminder(with reminderID: String) -> Reminder? {
+        let dataPersister = DataPersister.shared
+        let context = dataPersister.mainContext
+        
+        let predicate = NSPredicate(format: "%K = %@", #keyPath(Reminder.reminderID), reminderID)
+        let reminders = dataPersister.fetchObjects(entity: Reminder.self,
+                                                   predicate: predicate,
+                                                   context: context)
+        
+        let reminder = reminders.first { $0.reminderID == reminderID }
+        return reminder
+    }
+    
+    func removeNotification(for reminderID: String) {
+        NotificationsWorker.removeNotification(for: reminderID)
+    }
 }

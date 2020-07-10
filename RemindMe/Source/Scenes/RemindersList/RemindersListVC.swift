@@ -20,15 +20,17 @@ class RemindersListVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = AppTheme.background.color
         view.translatesAutoresizingMaskIntoConstraints =  false
+        tableView.rowHeight = 80
+        tableView.separatorStyle = .none
         loadReminders()
     }
 
     // MARK: - Load Reminders
     func loadReminders() {
         setupRenderUI()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ReminderCell")
+        tableView.register(ReminderCell.self, forCellReuseIdentifier: "ReminderCell")
     }
     
     // MARK: - Binding
@@ -61,26 +63,56 @@ extension RemindersListVC {
 // MARK: - Table view data source
 
 extension RemindersListVC {
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.numberOfSections
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfRows(in: section)
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = SectionHeaderView()
+        view.setHeaderTitle(viewModel.sectionTitle(for: section))
+        return view
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50.0
+    }
+    
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReminderCell",
+                                                       for: indexPath) as? ReminderCell,
+            let reminder = viewModel.reminder(at: indexPath) else {
+                return UITableViewCell()
+        }
+        // Configure the cell...
+        cell.update(using: reminder)
+        cell.delegate = self
+        cell.selectionStyle = .none
+        cell.backgroundColor = AppTheme.background.color
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? ReminderCell,
+        let reminderID = cell.reminderID {
+            viewModel.completeReminder(with: reminderID)
+        }
+    }
+}
 
-       override func numberOfSections(in tableView: UITableView) -> Int {
-           return viewModel.numberOfSections
-       }
-
-       override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           return viewModel.numberOfRows(in: section)
-       }
-
-       override func tableView(_ tableView: UITableView,
-                               cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-           let cell = tableView.dequeueReusableCell(withIdentifier: "ReminderCell", for: indexPath)
-           // Configure the cell...
-           let reminder = viewModel.reminder(at: indexPath)
-           cell.textLabel?.text = reminder?.task
-           cell.detailTextLabel?.text = reminder?.dueDateString
-           cell.textLabel?.textColor = .black
-           cell.backgroundColor = .white
-           return cell
-       }
+// MARK: - ReminderCellDelegate
+extension RemindersListVC: ReminderCellDelegate {
+    func reminderCell(_ reminderCell: ReminderCell,
+                      didCompleteReminderWith reminderID: String?) {
+        if let reminderID = reminderID {
+            viewModel.completeReminder(with: reminderID)
+        }
+    }
 }
 
 // MARK: - Factory Initializer
