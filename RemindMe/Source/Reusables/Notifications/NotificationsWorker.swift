@@ -67,7 +67,7 @@ final class NotificationsWorker {
         center.removeAllPendingNotificationRequests()
     }
     
-    static func removeAllDeliverdNotifications() {
+    static func removeAllDeliveredNotifications() {
         let center = UNUserNotificationCenter.current()
         center.removeAllDeliveredNotifications()
     }
