@@ -78,5 +78,4 @@ class DataPersister {
             return [T]()
         }
     }
-
 }
