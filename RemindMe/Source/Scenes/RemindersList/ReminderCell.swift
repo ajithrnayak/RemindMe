@@ -40,7 +40,6 @@ class ReminderCell: UITableViewCell {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = AppTheme.background.color
         $0.setTitle("  ", for: .normal)
-        $0.addTarget(self, action: #selector(completeButtonAction), for: .touchUpInside)
         $0.layer.masksToBounds = true
         $0.layer.cornerRadius = 8.0
         $0.layer.borderWidth = 2.0
@@ -54,20 +53,16 @@ class ReminderCell: UITableViewCell {
         backgroundColor = AppTheme.background.color
         setupCompletedButton()
         setupContentLabels()
+        completeButton.addTarget(self, action: #selector(markCompletedTapped), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-    }
-    
     // MARK: - actions
-    @objc
-    func completeButtonAction() {
+    
+    @objc func markCompletedTapped() {
         delegate?.reminderCell(self, didCompleteReminderWith: reminderID)
     }
     
