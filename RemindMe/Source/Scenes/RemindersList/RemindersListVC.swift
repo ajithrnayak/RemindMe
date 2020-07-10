@@ -96,13 +96,6 @@ extension RemindersListVC {
         cell.backgroundColor = AppTheme.background.color
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) as? ReminderCell,
-        let reminderID = cell.reminderID {
-            viewModel.completeReminder(with: reminderID)
-        }
-    }
 }
 
 // MARK: - ReminderCellDelegate
