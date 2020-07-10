@@ -74,7 +74,7 @@ class DateInputFieldView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = AppTheme.background.color
         setupDateFieldView()
         setupDateFieldInputView()
         setupBottomBorder()

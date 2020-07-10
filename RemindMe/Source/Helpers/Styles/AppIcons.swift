@@ -27,13 +27,13 @@ enum AppIcons {
         case .notifyOn:
             let boldSymbolImage = UIImage(systemName: "bell.fill",
                                           withConfiguration: boldConfiguration)
-            let bellImage = boldSymbolImage?.withTintColor(.black,
+            let bellImage = boldSymbolImage?.withTintColor(.white,
                                                            renderingMode: .alwaysOriginal)
             return bellImage
         case .notifyOff:
             let boldSymbolImage = UIImage(systemName: "bell.slash.fill",
                                           withConfiguration: boldConfiguration)
-            let bellImage = boldSymbolImage?.withTintColor(.black,
+            let bellImage = boldSymbolImage?.withTintColor(.white,
                                                            renderingMode: .alwaysOriginal)
             return bellImage
         }

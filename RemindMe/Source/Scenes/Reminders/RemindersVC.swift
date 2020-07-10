@@ -19,10 +19,10 @@ class RemindersVC: UIViewController {
     
     private let createReminderButton: UIButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.backgroundColor = .white
-        $0.setTitleColor(.systemPink, for: .normal)
+        $0.backgroundColor = AppTheme.pinkish.color
+        $0.setTitleColor(AppTheme.black.color, for: .normal)
         $0.setTitle("+", for: .normal)
-        $0.titleLabel?.font = UIFont.systemFont(ofSize: 42.0, weight: .bold)
+        $0.titleLabel?.font = AppFonts.NunitoFamily.bold.fontWithSize(42.0)
         $0.titleLabel?.textAlignment    = .center
         $0.contentVerticalAlignment     = .center
         $0.contentHorizontalAlignment   = .center

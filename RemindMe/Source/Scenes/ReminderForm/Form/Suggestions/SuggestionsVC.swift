@@ -28,9 +28,9 @@ class SuggestionsVC: UITableViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "SuggestCell")
-        tableView.tableFooterView = UIView()
-        tableView.backgroundColor = .white
-        view.backgroundColor = .white
+        tableView.tableFooterView   = UIView()
+        tableView.backgroundColor   = AppTheme.background.color
+        view.backgroundColor        = AppTheme.background.color
         loadSuggestions()
     }
     
@@ -63,8 +63,8 @@ class SuggestionsVC: UITableViewController {
         let suggestion = viewModel.suggestions.value[indexPath.row]
         // Configure the cell...
         cell.textLabel?.text = suggestion
-        cell.textLabel?.textColor = .black
-        cell.backgroundColor = .white
+        cell.textLabel?.textColor = AppTheme.darkText.color
+        cell.backgroundColor = AppTheme.background.color
         return cell
     }
     

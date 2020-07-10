@@ -76,7 +76,7 @@ class ReminderFormVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = AppTheme.background.color
         configureNavigationActions()
         
         suggestionsVC.delegate          = self

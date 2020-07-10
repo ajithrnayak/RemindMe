@@ -71,7 +71,7 @@ class ReminderOptionsView: UIView {
         super.init(frame: frame)
         setupOptionsView()
         setupTopBorder()
-        backgroundColor = .white
+        backgroundColor = AppTheme.backgroundVariant.color
     }
     
     convenience init() {

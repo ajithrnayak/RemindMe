@@ -56,6 +56,7 @@ class ReminderInputView: UIView {
         $0.keyboardType         = UIKeyboardType.default
         $0.returnKeyType        = .done
         $0.clearButtonMode      = .whileEditing
+        $0.textColor            = AppTheme.darkText.color
         $0.placeholder          = localized("Enter your task")
         $0.addTarget(self, action: #selector(inputFieldValueChanged), for: .editingChanged)
         $0.contentVerticalAlignment = .center
@@ -74,7 +75,7 @@ class ReminderInputView: UIView {
         super.init(frame: frame)
         setupInputView()
         setupBottomBorder()
-        backgroundColor = .white
+        backgroundColor = AppTheme.background.color
     }
     
     convenience init() {

@@ -26,7 +26,7 @@ class CameraVC: UIViewController {
     
     private let captureButton: UIButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.backgroundColor = .white
+        $0.backgroundColor = AppTheme.background.color
         $0.contentVerticalAlignment = .center
         $0.contentHorizontalAlignment = .center
         $0.addTarget(self, action: #selector(captureAction), for: .touchUpInside)
