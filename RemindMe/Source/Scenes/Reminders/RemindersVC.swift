@@ -31,6 +31,14 @@ class RemindersVC: UIViewController {
         return $0
     }(UIButton(type: .custom))
     
+    lazy var searchController: UISearchController = ({
+        let controller = UISearchController(searchResultsController: nil)
+        controller.hidesNavigationBarDuringPresentation = true
+        controller.searchBar.searchBarStyle = .minimal
+        controller.definesPresentationContext = true
+        return controller
+    })()
+    
     // MARK: - Properties
     private var router: RemindersRouter!
     
@@ -68,7 +76,8 @@ extension RemindersVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "RemindMe"
-        view.backgroundColor = .white
+        view.backgroundColor = AppTheme.background.color
+        configureSearchbar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,6 +94,10 @@ extension RemindersVC {
 // MARK: - Initial Configuration
 
 extension RemindersVC {
+    func configureSearchbar() {
+        self.navigationItem.searchController = searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = true
+    }
     
     private func setupRemindersList() {
         view.addSubview(containerView)
