@@ -57,13 +57,17 @@ class RemindersVC: UIViewController {
     }
     
     private func configureScene() {
-        self.router = RemindersRouter(viewController: self)
+       // self.router = RemindersRouter(viewController: self)
     }
     
     // MARK: - Actions
     @objc
     func createReminderButtonAction() {
-        router.showNewReminderForm(using: nil)
+        let reminderFormVC      = ReminderFormVC.newInstance()
+        reminderFormVC.image    = nil
+        reminderFormVC.delegate = self
+        self.navigationController?.pushViewController(reminderFormVC,
+                                                       animated: true)
         //showPhotoPickerOptions()
     }
 }
