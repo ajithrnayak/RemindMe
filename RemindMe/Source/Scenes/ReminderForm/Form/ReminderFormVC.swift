@@ -18,7 +18,7 @@ class ReminderFormVC: UIViewController {
     var image: UIImage?
     var reminderID: String?
     weak var delegate: ReminderFormDelegate?
-
+    
     // MARK: - Properties (private)
     private var viewModel: ReminderFormViewModel?
     private var router: ReminderFormRouter?
@@ -44,7 +44,7 @@ class ReminderFormVC: UIViewController {
     }(DateInputFieldView())
     
     let reminderOptionsView = ReminderOptionsView()
-
+    
     private let suggestionsVC = SuggestionsVC.newInstance()
     private let suggestionsContainerView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -52,7 +52,7 @@ class ReminderFormVC: UIViewController {
     }(UIView())
     
     // MARK: - Initializers
-
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         configureScene()
@@ -86,9 +86,9 @@ class ReminderFormVC: UIViewController {
         
         loadForm()
     }
-
+    
     // MARK: - Load Form
-
+    
     private func loadForm() {
         var state: ReminderFormState?
         if let image = image {
@@ -138,7 +138,7 @@ class ReminderFormVC: UIViewController {
             self?.statusHandler(status)
         })
     }
-
+    
     // MARK: - Actions
     
     @objc
@@ -157,7 +157,7 @@ class ReminderFormVC: UIViewController {
             delegate?.reminderFormDidSaveReminder()
         }
     }
-
+    
 }
 
 // MARK: - Initial setup
@@ -213,10 +213,10 @@ extension ReminderFormVC {
         }
         
         guard let placeholder = placeholderType.placeholder,
-            placeholderType != .none else {
-                showEmptyScreen(false)
-                self.hidePlaceholder()
-                return
+              placeholderType != .none else {
+            showEmptyScreen(false)
+            self.hidePlaceholder()
+            return
         }
         
         self.showPlaceholder(placeholder)
