@@ -131,6 +131,11 @@ extension RemindersVC {
     
     // MARK: - Image Picker
     private func showPhotoPickerOptions() {
+        guard UIImagePickerController.isSourceTypeAvailable(.camera)  else {
+            self.showPhotoPicker(for: .photoLibrary)
+            return
+        }
+        
         let photoSourcePicker = UIAlertController()
         let takePhoto = UIAlertAction(title: "Take Photo", style: .default) { [unowned self] _ in
             self.showPhotoPicker(for: .camera)
@@ -194,7 +199,7 @@ extension RemindersVC: ReminderFormDelegate {
     
     func reminderFormDidSaveReminder() {
         router.popToRootViewController()
-    }    
+    }
 }
 
 // MARK: - UISearchResultsUpdating
