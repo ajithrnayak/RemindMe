@@ -63,7 +63,8 @@ class RemindersVC: UIViewController {
     // MARK: - Actions
     @objc
     func createReminderButtonAction() {
-       showPhotoPickerOptions()
+        router.showNewReminderForm(using: nil)
+        //showPhotoPickerOptions()
     }
 }
 

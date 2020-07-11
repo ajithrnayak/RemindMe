@@ -192,6 +192,7 @@ class ReminderFormViewModel {
     // MARK: - Helper
 
     func reminderFormTitle() -> String {
-        return state!.isNewReminder ? localized("New reminder") : localized("Edit reminder")
+        let isNew = state?.isNewReminder ?? true
+        return isNew ? localized("New reminder") : localized("Edit reminder")
     }
 }
