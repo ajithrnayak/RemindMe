@@ -11,15 +11,20 @@ import UIKit
 
 final class RemindersRouter {
     weak var viewController: RemindersVC?
-    var formCoordinator: ReminderFormCoordinator!
     
     init(viewController: RemindersVC?) {
         self.viewController = viewController
     }
     
-    func showNewReminderForm() {
-        let navController = viewController?.navigationController
-        formCoordinator = ReminderFormCoordinator(navigationController: navController)
-        formCoordinator.showReminderForm()
+    func showNewReminderForm(using image: UIImage?) {
+        let reminderFormVC      = ReminderFormVC.newInstance()
+        reminderFormVC.image    = image
+        reminderFormVC.delegate = viewController
+        viewController?.navigationController?.pushViewController(reminderFormVC,
+                                                                animated: true)
+    }
+    
+    func popToRootViewController() {
+        viewController?.navigationController?.popToRootViewController(animated: true)
     }
 }

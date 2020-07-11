@@ -41,6 +41,8 @@ class RemindersVC: UIViewController {
         return controller
     })()
     
+    var photoPicker: UIImagePickerController?
+    
     // MARK: - Properties
     private var router: RemindersRouter!
     
@@ -61,7 +63,7 @@ class RemindersVC: UIViewController {
     // MARK: - Actions
     @objc
     func createReminderButtonAction() {
-        router.showNewReminderForm()
+       showPhotoPickerOptions()
     }
 }
 
@@ -126,7 +128,76 @@ extension RemindersVC {
                            createReminderButton.widthAnchor.constraint(equalToConstant: 60.0)]
         constraints.forEach { $0.isActive = true }
     }
+    
+    // MARK: - Image Picker
+    private func showPhotoPickerOptions() {
+        let photoSourcePicker = UIAlertController()
+        let takePhoto = UIAlertAction(title: "Take Photo", style: .default) { [unowned self] _ in
+            self.showPhotoPicker(for: .camera)
+        }
+        let choosePhoto = UIAlertAction(title: "Choose Photo", style: .default) { [unowned self] _ in
+            self.showPhotoPicker(for: .photoLibrary)
+        }
+        
+        photoSourcePicker.addAction(takePhoto)
+        photoSourcePicker.addAction(choosePhoto)
+        photoSourcePicker.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(photoSourcePicker, animated: true)
+    }
+    
+    private func showPhotoPicker(for sourceType: UIImagePickerController.SourceType) {
+        let photoPicker         = UIImagePickerController()
+        photoPicker.delegate    = self
+        photoPicker.sourceType  = sourceType
+        self.photoPicker        = photoPicker
+        
+        self.present(photoPicker, animated: true, completion: nil)
+    }
+    
+    private func resetPhotoPicker() {
+        self.photoPicker?.dismiss(animated: true, completion: { [unowned self] in
+            self.photoPicker = nil
+        })
+    }
+    
+    private func showNewReminderForm(using photo: UIImage?) {
+        router.showNewReminderForm(using: photo)
+    }
 }
+
+// MARK: - Handling Image Picker Selection
+extension RemindersVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true) { [unowned self] in
+            self.photoPicker = nil
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        picker.dismiss(animated: true) { [unowned self] in
+            self.photoPicker = nil
+            self.showNewReminderForm(using: image)
+        }
+    }
+}
+
+// MARK: - ReminderFormDelegate
+
+extension RemindersVC: ReminderFormDelegate {
+    func reminderFormDidRequestCancel() {
+        router.popToRootViewController()
+    }
+    
+    func reminderFormDidSaveReminder() {
+        router.popToRootViewController()
+    }    
+}
+
+// MARK: - UISearchResultsUpdating
 
 extension RemindersVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
