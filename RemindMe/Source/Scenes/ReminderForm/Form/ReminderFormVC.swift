@@ -18,20 +18,20 @@ class ReminderFormVC: UIViewController {
     var image: UIImage?
     var reminderID: String?
     weak var delegate: ReminderFormDelegate?
-
+    
     // MARK: - Properties (private)
     private var viewModel: ReminderFormViewModel?
     private var router: ReminderFormRouter?
     
-    private let backBarButtonItem = UIBarButtonItem(title: localized("Cancel"),
-                                                    style: .plain,
-                                                    target: self,
-                                                    action: #selector(cancelReminderFormAction))
+    let backBarButtonItem = UIBarButtonItem(title: localized("Cancel"),
+                                            style: .plain,
+                                            target: self,
+                                            action: #selector(cancelReminderFormAction))
     
-    private let doneBarButtonItem = UIBarButtonItem(title: localized("Done"),
-                                                    style: .done,
-                                                    target: self,
-                                                    action: #selector(saveReminderAction))
+    let doneBarButtonItem = UIBarButtonItem(title: localized("Done"),
+                                            style: .done,
+                                            target: self,
+                                            action: #selector(saveReminderAction))
     
     private let reminderInputView: ReminderInputView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -44,7 +44,7 @@ class ReminderFormVC: UIViewController {
     }(DateInputFieldView())
     
     let reminderOptionsView = ReminderOptionsView()
-
+    
     private let suggestionsVC = SuggestionsVC.newInstance()
     private let suggestionsContainerView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -52,7 +52,7 @@ class ReminderFormVC: UIViewController {
     }(UIView())
     
     // MARK: - Initializers
-
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         configureScene()
@@ -69,26 +69,26 @@ class ReminderFormVC: UIViewController {
     // MARK: - View Life Cycle
     override func loadView() {
         super.loadView()
-        setupInputView()
-        setupDueDateView()
-        setupSuggestionsView()
+        //        setupInputView()
+        //        setupDueDateView()
+        //        setupSuggestionsView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = AppTheme.background.color
         configureNavigationActions()
-        
-        suggestionsVC.delegate          = self
-        reminderDueDateView.delegate    = self
-        reminderInputView.delegate      = self
-        reminderOptionsView.delegate    = self
-        
-        loadForm()
+        //
+        //        suggestionsVC.delegate          = self
+        //        reminderDueDateView.delegate    = self
+        //        reminderInputView.delegate      = self
+        //        reminderOptionsView.delegate    = self
+        //
+        //        loadForm()
     }
-
+    
     // MARK: - Load Form
-
+    
     private func loadForm() {
         var state: ReminderFormState?
         if let image = image {
@@ -138,7 +138,7 @@ class ReminderFormVC: UIViewController {
             self?.statusHandler(status)
         })
     }
-
+    
     // MARK: - Actions
     
     @objc
@@ -157,7 +157,7 @@ class ReminderFormVC: UIViewController {
             delegate?.reminderFormDidSaveReminder()
         }
     }
-
+    
 }
 
 // MARK: - Initial setup
@@ -198,7 +198,7 @@ extension ReminderFormVC {
     
     private func configureNavigationActions() {
         navigationItem.leftBarButtonItem = backBarButtonItem
-        navigationItem.rightBarButtonItem = doneBarButtonItem
+        //navigationItem.rightBarButtonItem = doneBarButtonItem
     }
 }
 
@@ -213,10 +213,10 @@ extension ReminderFormVC {
         }
         
         guard let placeholder = placeholderType.placeholder,
-            placeholderType != .none else {
-                showEmptyScreen(false)
-                self.hidePlaceholder()
-                return
+              placeholderType != .none else {
+            showEmptyScreen(false)
+            self.hidePlaceholder()
+            return
         }
         
         self.showPlaceholder(placeholder)
