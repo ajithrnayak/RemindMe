@@ -23,15 +23,15 @@ class ReminderFormVC: UIViewController {
     private var viewModel: ReminderFormViewModel?
     private var router: ReminderFormRouter?
     
-    private let backBarButtonItem = UIBarButtonItem(title: localized("Cancel"),
-                                                    style: .plain,
-                                                    target: self,
-                                                    action: #selector(cancelReminderFormAction))
+    lazy var backBarButtonItem = UIBarButtonItem(title: localized("Cancel"),
+                                                 style: .plain,
+                                                 target: self,
+                                                 action: #selector(cancelReminderFormAction))
     
-    private let doneBarButtonItem = UIBarButtonItem(title: localized("Done"),
-                                                    style: .done,
-                                                    target: self,
-                                                    action: #selector(saveReminderAction))
+    lazy var doneBarButtonItem = UIBarButtonItem(title: localized("Done"),
+                                                 style: .done,
+                                                 target: self,
+                                                 action: #selector(saveReminderAction))
     
     private let reminderInputView: ReminderInputView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
