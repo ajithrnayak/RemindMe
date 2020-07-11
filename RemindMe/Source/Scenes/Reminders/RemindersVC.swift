@@ -82,16 +82,12 @@ extension RemindersVC {
         title = "RemindMe"
         view.backgroundColor = AppTheme.background.color
         configureSearchbar()
+        NotificationsWorker.requestUserPermision { (_) in }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         remindersList.refreshReminders()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        NotificationsWorker.requestUserPermision { (_) in }
     }
 }
 
