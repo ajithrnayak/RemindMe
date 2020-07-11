@@ -96,7 +96,7 @@ extension RemindersVC {
 extension RemindersVC {
     func configureSearchbar() {
         self.navigationItem.searchController = searchController
-        self.navigationItem.hidesSearchBarWhenScrolling = true
+        self.navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     private func setupRemindersList() {
