@@ -12,15 +12,17 @@ import UIKit
 import CoreML
 
 enum CoreMLModelFile: String {
-    case mobileNetV2 = "MobileNetV2"
-    case resnet50 = "Resnet50"
+    case mobileNetV2    = "MobileNetV2"
+    case resnet50       = "Resnet50"
     
-    var model: MLModel {
+    func getModel() throws -> MLModel {
+        // use model default configuration
+        let config = MLModelConfiguration()
         switch self {
         case .mobileNetV2:
-            return MobileNetV2().model
+            return try MobileNetV2(configuration: config).model
         case .resnet50:
-            return Resnet50().model
+            return try Resnet50(configuration: config).model
         }
     }
 }
@@ -51,9 +53,9 @@ class VisionMLWorker {
     /// - Throws: A type of VisionMLClassificationError
     init(modelFile: CoreMLModelFile) throws {
         do {
-            let model = modelFile.model
-            let coreModel = try VNCoreMLModel(for: model)
-            self.coreModel = coreModel
+            let model       = try modelFile.getModel()
+            let coreModel   = try VNCoreMLModel(for: model)
+            self.coreModel  = coreModel
         }
         catch {
             Log.fatal("Failed to load Vision ML model: \(error)")
