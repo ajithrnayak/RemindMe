@@ -1,5 +1,4 @@
 # RemindMe
-SignEasy Task
 
 Create a “Smart Reminder” app with following specifications
 
