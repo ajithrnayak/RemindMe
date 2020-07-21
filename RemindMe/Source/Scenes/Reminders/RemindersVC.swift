@@ -40,9 +40,7 @@ class RemindersVC: UIViewController {
         controller.definesPresentationContext = true
         return controller
     })()
-    
-    var photoPicker: UIImagePickerController?
-    
+        
     // MARK: - Properties
     private var router: RemindersRouter!
     
@@ -133,11 +131,11 @@ extension RemindersVC {
         }
         
         let photoSourcePicker = UIAlertController()
-        let takePhoto = UIAlertAction(title: "Take Photo", style: .default) { [unowned self] _ in
-            self.showPhotoPicker(for: .camera)
+        let takePhoto = UIAlertAction(title: "Take Photo", style: .default) { [weak self] _ in
+            self?.showPhotoPicker(for: .camera)
         }
-        let choosePhoto = UIAlertAction(title: "Choose Photo", style: .default) { [unowned self] _ in
-            self.showPhotoPicker(for: .photoLibrary)
+        let choosePhoto = UIAlertAction(title: "Choose Photo", style: .default) { [weak self] _ in
+            self?.showPhotoPicker(for: .photoLibrary)
         }
         
         photoSourcePicker.addAction(takePhoto)
@@ -151,15 +149,7 @@ extension RemindersVC {
         let photoPicker         = UIImagePickerController()
         photoPicker.delegate    = self
         photoPicker.sourceType  = sourceType
-        self.photoPicker        = photoPicker
-        
         self.present(photoPicker, animated: true, completion: nil)
-    }
-    
-    private func resetPhotoPicker() {
-        self.photoPicker?.dismiss(animated: true, completion: { [unowned self] in
-            self.photoPicker = nil
-        })
     }
     
     private func showNewReminderForm(using photo: UIImage?) {
@@ -171,17 +161,14 @@ extension RemindersVC {
 extension RemindersVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true) { [unowned self] in
-            self.photoPicker = nil
-        }
+        picker.dismiss(animated: true)
     }
     
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        picker.dismiss(animated: true) { [unowned self] in
-            self.photoPicker = nil
-            self.showNewReminderForm(using: image)
+        picker.dismiss(animated: true) { [weak self] in
+            self?.showNewReminderForm(using: image)
         }
     }
 }

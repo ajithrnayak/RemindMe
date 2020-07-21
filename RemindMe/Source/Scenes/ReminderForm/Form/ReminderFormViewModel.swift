@@ -100,7 +100,7 @@ class ReminderFormViewModel {
     }
     
     func createNewReminder(using image: UIImage) {
-        guard  let visionWorker = try? VisionMLWorker(modelFile: .resnet50) else {
+        guard let visionWorker = try? VisionMLWorker(modelFile: .resnet50) else {
             self.placeholderType.value = .failedToProcess
             return
         }
