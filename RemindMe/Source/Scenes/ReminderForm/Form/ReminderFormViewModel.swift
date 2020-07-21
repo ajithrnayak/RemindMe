@@ -112,7 +112,7 @@ class ReminderFormViewModel {
         self.visionWorker?.setupClassificationRequest()
         // process image async
         do {
-            try self.visionWorker?.getClassifications(for: image) { (results) in
+            try self.visionWorker?.getClassifications(for: image) { [weak self] (results) in
                 DispatchQueue.main.async { [weak self] in
                     // lets take first result since we asked for only one
                     guard let result = results.first,
