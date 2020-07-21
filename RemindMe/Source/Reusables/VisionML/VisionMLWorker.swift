@@ -16,7 +16,7 @@ enum CoreMLModelFile: String {
     case resnet50       = "Resnet50"
     
     func getModel() throws -> MLModel {
-        // use model default configuration
+        // use model default configurations
         let config = MLModelConfiguration()
         switch self {
         case .mobileNetV2:
@@ -43,9 +43,12 @@ typealias ClassificationCompletionHandler = (([ClassificationData]) -> Void)
 class VisionMLWorker {
     let coreModel : VNCoreMLModel
     private(set) var classificationRequest: VNCoreMLRequest?
+    /// Restricts classification prediction results count to just 1 by default.
     var classificationsCount: Int = 1
     var completionHandler: ClassificationCompletionHandler? = nil
     
+    // MARK: - Initializer
+
     /// Use the Swift class `MobileNetV2` Core ML generates from the model.
     /// To use a different Core ML classifier model, see
     /// https://developer.apple.com/machine-learning/models/
@@ -72,8 +75,7 @@ class VisionMLWorker {
         request.imageCropAndScaleOption = .centerCrop
         self.classificationRequest = request
     }
-    
-    
+
     /// Use a image to process and determine its classification
     /// - Parameter image: A image file
     /// - Parameter completionHandler: Invoked after classification has completed
